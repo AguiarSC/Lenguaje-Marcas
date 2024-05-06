@@ -1,10 +1,40 @@
-Sintaxis de XML
+Sintaxis de XSLT
 ===============
+
+¿Qué es XSLT?
+----------------------------
+
+Es un lenguaje XML que se utiliza, junto con XPath, para convertir un documento XML en un documento HTML, en un documento de texto o en otro documento XML. Es decir, XSL permite definir la forma en que queremos ver los datos almacenados en un documento XML. En realidad, XSL es un lenguaje que define la transformación entre un documento XML de entrada y otro documento XML de salida.
+
+Para realizar las transformaciones, necesitamos un procesador XSLT. En el proceso de transformación, XSLT utiliza XPath para definir partes del documento fuente que deben coincidir con una o más plantillas predefinidas. Cuando encuentra una coincidencia, XSLT transformará la parte coincidente del documento fuente en el documento resultante.
 
 Estructura del documento XML
 ----------------------------
 
-Un documento XML tiene siempre esta estructura básica:
+Comenzaremos con una transformación sencilla de Ejemplo.xml:
+
+.. code-block:: xml
+
+   <?xml version="1.0" encoding="utf-8"?>
+<ciclo>
+<módulo sesións="5" horas="133">Linguaxes de marcas</módulo>
+<profesor>Xaime Louzán</profesor>
+</ciclo>
+
+
+La transformación a realizar se almacenará en un documento XSLT (.xsl) y se deberá vincular con el XML mediante: 
+<?xml-stylesheet type="text/xsl" href="Ejemplo.xsl"?>
+
+.. code-block:: xml
+
+   <?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="Ejemplo.xsl"?>
+<ciclo>
+<módulo sesións="5" horas="133">Linguaxes de marcas</módulo>
+<profesor>Xaime Louzán</profesor>
+</ciclo>
+
+
 
 .. code-block:: text
 
