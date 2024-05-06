@@ -19,6 +19,7 @@ Comenzaremos con una transformación sencilla de Ejemplo.xml:
    </ciclo>
 ..
 
+
 La transformación a realizar se almacenará en un documento XSLT (.xsl) y se deberá vincular con el XML. En el XML original se debe de añadir la siguiente declaración: 
 
 .. code-block:: xml
@@ -31,12 +32,14 @@ La transformación a realizar se almacenará en un documento XSLT (.xsl) y se de
    </ciclo>
 ..
 
+
 Respecto al documento XSLT, tiene una estructura específica y deberá de comenzar con un prólogo XML:
 
 .. code-block:: xml
 
    <?xml version="1.0" encoding="utf-8"?>
 ..
+
 
 El elemento raíz del XSLT puede ser cualquiera de estas dos etiquetas, puesto que son sinónimas:
 
@@ -45,6 +48,7 @@ El elemento raíz del XSLT puede ser cualquiera de estas dos etiquetas, puesto q
    <stylesheet>
    <transform>
 ..
+
 
 Además, deberá de indicar la versión, así como una referencia en el documento al espacio de nombres (las qe contienen las instrucciones destinadas al procesador XSLT). Como este tipo de documentos suele contener otras etiquetas no exclusivas del procesador, es aconsejable emplear un prefijo (comúnmente xsl):
 
@@ -55,6 +59,7 @@ Además, deberá de indicar la versión, así como una referencia en el document
       ........................
    </xsl:stylesheet>
 ..
+
 
 Así las cosas, el documento XSLT de la transformación del XML anterior sería:
 
@@ -68,20 +73,21 @@ Así las cosas, el documento XSLT de la transformación del XML anterior sería:
       <HEAD>
          <TITLE>Ciclo</TITLE>
       </HEAD>
-   <BODY>
-      <H1><xsl:value-of select="//módulo"/></H1>
-      <H2>- <xsl:value-of select="//profesor"/></H2>
-      <P><xsl:value-of select="//módulo/@horas"/> horas
-         (<xsl:value-of select="//módulo/@sesións"/> sesións semanais.)</P>
-   </BODY>
-</HTML>
-</xsl:template>
-</xsl:stylesheet>
-
+      <BODY>
+         <H1><xsl:value-of select="//módulo"/></H1>
+         <H2>- <xsl:value-of select="//profesor"/></H2>
+         <P><xsl:value-of select="//módulo/@horas"/> horas
+            (<xsl:value-of select="//módulo/@sesións"/> sesións semanais.)</P>
+      </BODY>
+   </HTML>
+   </xsl:template>
+   </xsl:stylesheet>
 ..
 
 
 
+Formatos de salida
+----------------------------
 
 
 
