@@ -160,6 +160,19 @@ El patrón puede contener texto y etiquetas (por ejemplo, código en formato HTM
 ..
 
 
+Resumidamente, la transformación se realiza de la siguiente manera:
+
+# El documento origen se pasa al procesador XSLT.
+# El procesador carga una hoja de estilos XSLT.
+# Luego, el procesador:
+   - Carga los patrones especificados en la hoja de estilo...
+   - Recorre el documento XML origen, nodo por nodo...
+   - Para cada nodo, busca un patrón que lo referencie en su atributo "match".
+   - Una vez encontrado el patrón, aplica la transformación definida en el mismo al nodo del documento origen.
+   - Proporciona el resultado en un nuevo documento.
+
+
+Es muy importante tener en cuenta que cuando el procesador encuentra un patrón que hace referencia al nodo que está procesando, después de aplicar la transformación correspondiente, marca al nodo y a todos sus hijos como procesados, por lo que no buscará otro patrón con el que transformarlos.
 
 
 
