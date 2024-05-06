@@ -407,7 +407,83 @@ Para crear comentarios se utiliza ``<xsl:component>``.
 XSLT con diferentes patrones
 -----------------------------
 
+Ya hemos visto lo que sucede cuando no existe un patrón para algún elemento del documento XML de origen. Y hasta ahora hemos estado usando documentos XSLT con un único patrón. Veamos qué pasa cuando tenemos un documento XSLT con varios patrones, como el siguiente ejemplo (Variospatrons1.xml y Variospatrons1.xsl).
+
+.. code-block:: xml
+
+   <?xml version="1.0" encoding="utf-8"?>
+   <xsl:stylesheet version="1.0"
+   xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+   <xsl:output method="xml" indent="yes" />
+   <xsl:template match="/módulo/profesor">
+    <Profesor />
+   </xsl:template>
+   <xsl:template match="/módulo">
+    <Módulo />
+   </xsl:template>
+   </xsl:stylesheet>
+
+Cuando aplicamos la anterior transformación al documento XML:
+
+.. code-block:: xml
+
+   <?xml version="1.0" encoding="utf-8"?>
+   <módulo>
+   <profesor>Xaime Louzán</profesor>
+   </módulo>
+
+Obtenemos como salida.
+
+.. code-block:: xml
+
+   <?xml version="1.0" encoding="UTF-8"?>
+    <Módulo />
 
 
+¡¡OJO!! El primer patrón no se procesa. ¿Cuál es la explicación de este comportamiento?
+
+La razón es que el procesador XSLT toma los nodos del documento original (el .xml) uno por uno, comenzando con el elemento raíz y buscando algún patrón que se le pueda aplicar. Por tanto, el elemento raíz del documento fuente, "<módulo>", es el primero en procesarse, y con él todos sus hijos. El patrón seleccionado por el procesador XSLT para este elemento es "<xsl:template match="/module">" y, como resultado, "<Module />" se copia en el documento de salida. Una vez que se han procesado el elemento raíz y sus hijos, no hay más nodos para procesar en el documento original, por lo que el patrón "<xsl:template match="/module/teacher"> no se ejecuta.
+
+Veamos otro ejemplo (prioridad.xml y prioridad.xsl):
+
+Considere el siguiente documento XML:
+
+.. code-block:: xml
+
+   <?xml version="1.0" encoding="UTF-8"?>
+   <?xml-stylesheet type="text/xsl" href="prioridad.xsl"?>
+   <catalogo>
+    <cd>
+    <titulo>Thriller</titulo>
+    <artista>Michael Jackson</artista>
+   </cd>
+    <cd>
+    <titulo>The Wall</titulo>
+    <artista>Pink Floyd</artista>
+    </cd>
+   <cd>
+    <titulo>Abbey Road</titulo>
+    <artista>The Beatles</artista>
+   </cd>
+   </catalogo>
+
+Le aplicamos el siguiente XSL:
+
+.. code-block:: xml
+
+   <?xml version="1.0" encoding="UTF-8"?>
+   <xsl:stylesheetversion="2.0"
+   xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+   <xsl:output method="text" />
+   <xsl:template match="cd">
+    <xsl:value-of select="titulo"/>
+    <xsl:value-of select="artista"/>
+   </xsl:template>
+   <xsl:template match="titulo">TÍTULO</xsl:template>
+   </xsl:stylesheet>
+
+La transformación da como resultado el siguiente documento de texto:
+
+Como podemos ver, el texto TÍTULO no se incluye ya que prevalece la primera plantilla: el elemento cd está más cerca del catálogo (elemento raíz) que del título.
 
 
