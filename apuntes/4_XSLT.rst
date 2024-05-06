@@ -453,18 +453,18 @@ Considere el siguiente documento XML:
    <?xml version="1.0" encoding="UTF-8"?>
    <?xml-stylesheet type="text/xsl" href="prioridad.xsl"?>
    <catalogo>
-    <cd>
-    <titulo>Thriller</titulo>
-    <artista>Michael Jackson</artista>
-   </cd>
-    <cd>
-    <titulo>The Wall</titulo>
-    <artista>Pink Floyd</artista>
-    </cd>
-   <cd>
-    <titulo>Abbey Road</titulo>
-    <artista>The Beatles</artista>
-   </cd>
+      <cd>
+         <titulo>Thriller</titulo>
+         <artista>Michael Jackson</artista>
+      </cd>
+      <cd>
+         <titulo>The Wall</titulo>
+         <artista>Pink Floyd</artista>
+      </cd>
+      <cd>
+         <titulo>Abbey Road</titulo>
+         <artista>The Beatles</artista>
+      </cd>
    </catalogo>
 
 Le aplicamos el siguiente XSL:
@@ -472,12 +472,11 @@ Le aplicamos el siguiente XSL:
 .. code-block:: xml
 
    <?xml version="1.0" encoding="UTF-8"?>
-   <xsl:stylesheetversion="2.0"
-   xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+   <xsl:stylesheetversion="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
    <xsl:output method="text" />
    <xsl:template match="cd">
-    <xsl:value-of select="titulo"/>
-    <xsl:value-of select="artista"/>
+      <xsl:value-of select="titulo"/>
+      <xsl:value-of select="artista"/>
    </xsl:template>
    <xsl:template match="titulo">TÍTULO</xsl:template>
    </xsl:stylesheet>
