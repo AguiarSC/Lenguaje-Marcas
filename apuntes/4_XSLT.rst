@@ -118,3 +118,49 @@ Elaboración de transformaciones XSLT
 ..
 
 
+Patrones XSLT
+~~~~~~~~~~~~~
+
+Los patrones indican una transformación que se realizará en ciertos elementos del documento original. La forma más común de indicar los elementos del documento original a los que se aplicará el patrón es mediante el uso de una expresión XPath con el atributo "match". Por ejemplo, si queremos aplicar el patrón al documento XML completo, utilizaremos el valor "/" en el atributo match. De esta manera se selecciona el elemento raíz y se aplica la plantilla a todo el documento XML.
+
+.. code-block:: xml
+
+   <xsl:template match="/">
+      …
+   </xsl:template>
+..
+
+El patrón puede contener texto y etiquetas (por ejemplo, código en formato HTML), que se copiarán en el documento de salida.
+
+.. code-block:: xml
+
+   <?xml version="1.0" encoding="utf-8"?>
+   <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+   <xsl:template match="/">
+   <HTML>
+      <HEAD>
+         <TITLE>Documento HTML</TITLE>
+      </HEAD>
+      <BODY>
+         <h2>Colección de música</h2>
+         <table border="1">
+            <tr bgcolor="#9acd32">
+               <th>Título</th>
+               <th>Artista</th>
+            </tr>
+            <tr>
+               <td>.</td>
+               <td>.</td>
+            </tr>
+         </table>
+      </BODY>
+   </HTML>
+   </xsl:template>
+   </xsl:stylesheet>
+..
+
+
+
+
+
+
