@@ -20,12 +20,11 @@ Comenzaremos con una transformación sencilla de Ejemplo.xml:
 ..
 
 La transformación a realizar se almacenará en un documento XSLT (.xsl) y se deberá vincular con el XML mediante: 
-<?xml-stylesheet type="text/xsl" href="Ejemplo.xsl"?>
 
 .. code-block:: xml
 
    <?xml version="1.0" encoding="utf-8"?>
-   <?xml-stylesheet type="text/xsl" href="Ejemplo.xsl"?>
+   **<?xml-stylesheet type="text/xsl" href="Ejemplo.xsl"?>**
    <ciclo>
       <módulo sesións="5" horas="133">Linguaxes de marcas</módulo>
       <profesor>Xaime Louzán</profesor>
