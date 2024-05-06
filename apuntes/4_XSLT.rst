@@ -202,6 +202,9 @@ Cuando usamos las expresiones "/" o "/ciclo", estas cubren todos sus hijos y, po
 Al usar la expresión "/ciclo/módulo" en el patrón (<xsl:template match="/ciclo/módulo">), el resultado obtenido no es el que inicialmente podríamos esperar. Los elementos "<ciclo>" y "<profesor>" no están cubiertos por él; por lo tanto, el procesador XSLT les aplica un patrón predefinido. Básicamente, el comportamiento de estos patrones predefinidos es procesar el elemento y todos sus hijos, copiando al documento de salida el texto que contienen.
 
 En nuestro ejemplo (Exemplo02b.xml y Exemplo02b.xsl):
+
 * Al procesar el elemento "<ciclo>", el procesador XSLT no encuentra un patrón y aplica el patrón predefinido. Esto copia al documento de salida el salto de línea que existe antes del elemento "<módulo>". Por eso aparece una línea vacía al inicio del documento resultante.
+
 * El elemento "<módulo>" está cubierto por el patrón "/ciclo/módulo", y al procesarlo se copian en el documento de salida las etiquetas y el contenido correspondientes al documento HTML.
+
 * Por último, el procesador XSLT llega al elemento "<profesor>", que tampoco tiene un patrón específico, por lo que también copia su contenido (el nombre del profesor) al documento de salida.
