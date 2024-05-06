@@ -19,7 +19,7 @@ Comenzaremos con una transformación sencilla de Ejemplo.xml:
    </ciclo>
 ..
 
-La transformación a realizar se almacenará en un documento XSLT (.xsl) y se deberá vincular con el XML mediante: 
+La transformación a realizar se almacenará en un documento XSLT (.xsl) y se deberá vincular con el XML. En el XML original se debe de añadir la siguiente declaración: 
 
 .. code-block:: xml
 
@@ -31,14 +31,24 @@ La transformación a realizar se almacenará en un documento XSLT (.xsl) y se de
    </ciclo>
 ..
 
+Respecto al documento XSLT, tiene una estructura específica y deberá de comenzar con un prólogo XML:
 
-.. code-block:: text
+.. code-block:: xml
 
-   Declaración / Versión XML
-   Nodo raíz
-     Sub-elementos
-     ...
-   Cierre del nodo raíz
+   <?xml version="1.0" encoding="utf-8"?>
+..
+
+El elemento raíz del XSLT puede ser cualquiera de estas dos etiquetas, puesto que son sinónimas:
+
+.. code-block:: xml
+
+   <stylesheet>
+   <transform>
+..
+
+
+
+
 
 Declaración XML
 ~~~~~~~~~~~~~~~
