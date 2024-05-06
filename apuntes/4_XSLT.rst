@@ -17,13 +17,11 @@ Comenzaremos con una transformación sencilla de Ejemplo.xml:
       <profesor>Xaime Louzán</profesor>
    </ciclo>
 
-.. code-block:: xml
 
 La transformación a realizar se almacenará en un documento XSLT (.xsl) y se deberá vincular con el XML mediante: 
 <?xml-stylesheet type="text/xsl" href="Ejemplo.xsl"?>
 
 .. code-block:: xml
-
    <?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet type="text/xsl" href="Ejemplo.xsl"?>
 <ciclo>
