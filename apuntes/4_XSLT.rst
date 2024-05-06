@@ -24,9 +24,7 @@ La transformación a realizar se almacenará en un documento XSLT (.xsl) y se de
 .. code-block:: xml
 
    <?xml version="1.0" encoding="utf-8"?>
-.. role:: red   
 <?xml-stylesheet type="text/xsl" href="Ejemplo.xsl"?>
-..
    <ciclo>
       <módulo sesións="5" horas="133">Linguaxes de marcas</módulo>
       <profesor>Xaime Louzán</profesor>
