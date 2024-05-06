@@ -193,9 +193,6 @@ Es muy importante tener en cuenta que cuando el procesador encuentra un patrón 
 El primer nodo del documento origen que procesa es ``<ciclo>``, y una vez aplicada la transformación que indica su patrón correspondiente, los nodos ``módulo`` y ``profesor`` también quedan marcado como procesados, por lo que el segundo patrón del documento XSLT nunca se ejecutará. Más adelante, se verá cómo se llevan a cabo las transformaciones XSLT con varios patrones.
 
 
-Creación de texto y elementos
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 Texto
 ~~~~~
 
@@ -295,8 +292,120 @@ Cuando creamos un nuevo elemento en el documento de salida utilizando ``<xsl:ele
 ..
 
 
+Valores
+~~~~~~~
+
+En algunos casos queremos obtener el valor de un elemento o atributo del documento de origen para utilizarlo como parte del documento de salida.
+
+.. code-block:: xml
+
+   <xsl:value-of select="expression-xpath" />
+..
+
+Por ejemplo, partiendo del siguiente XML:
+
+.. code-block:: xml
+
+   <?xml version="1.0" encoding="UTF-8"?>
+   <?xml-stylesheet type="text/xsl" href="hoja.xsl"?>
+   <catalogo>
+      <cd>
+         <titulo>Thriller</titulo>
+         <artista>Michael Jackson</artista>
+      </cd>
+      <cd>
+         <titulo>The Wall</titulo>
+         <artista>Pink Floyd</artista>
+      </cd>
+      <cd>
+         <titulo>Abbey Road</titulo>
+         <artista>The Beatles</artista>
+      </cd>
+   </catalogo>   
+..
+
+Le aplicamos un documento XSLT:
+
+.. code-block:: xml
+
+   <?xml version="1.0" encoding="UTF-8"?>
+   <xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+      <xsl:template match="/">
+         <html>
+            <body>
+               <h2>Colección de música</h2>
+               <table border="1">
+                  <tr bgcolor="#9acd32">
+                     <th>Título</th>
+                     <th>Artista</th>
+                  </tr>
+                  <tr>
+                     <td>
+                        <xsl:value-of select="catalogo/cd/titulo" />
+                     </td>
+                     <td>
+                        <xsl:value-of select="catalogo/cd/artista" />
+                     </td>
+                  </tr>
+               </table>
+            </body>
+         </html>
+      </xsl:template>
+   </xsl:stylesheet>   
+..
+
+Obtenemos un documento HTML en el que solo se mostrará la primera ocurrencia del ``catálogo/cd/titulo`` y de ``catalogo/cd/artista``.
 
 
+Conjunto de atributos
+~~~~~~~~~~~~~~~~~~~~~
+
+También es posible definir un conjunto de atributos para luego usarlo en uno o varios elementos. El conjunto de atributos se define usando ``<xsl:attribute-set>``. Se debe indicar el nombre del conjunto con el atributo ``name``.
+
+.. code-block:: xml
+
+   <xsl:attribute-set name="atr_módulo">
+      <xsl:attribute name="nome">
+         <xsl:value-of select="ciclo/módulo" />
+      </xsl:attribute>
+      <xsl:attribute name="sesións_anuais">
+         <xsl:value-of select="ciclo/módulo/@horas * 1.2"/>
+      </xsl:attribute>
+   </xsl:attribute-set>
+..
+
+``¡OJO!`` La definición del conjunto de atributos debe hacerse como hijo directo del elemento raíz ``<xsl:stylesheet>`` fuera de cualquier patrón. 
+Para emplear el conjunto de atributos en la definición de un elemento se añade el atributo ``use-attribute-sets``. Por ejemplo:
+
+.. code-block:: xml
+
+   <?xml version="1.0" encoding="UTF-8"?>
+   <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+      <xsl:output encoding="UTF-8" indent="yes" method="xml"/>
+      <xsl:attribute-set name="atr_módulo">
+         <xsl:attribute name="nome">
+            <xsl:value-of select="ciclo/módulo" />
+         </xsl:attribute>
+         <xsl:attribute name="sesións_anuais">
+            <xsl:value-of select="ciclo/módulo/@horas * 1.2"/>
+         </xsl:attribute>
+      </xsl:attribute-set>
+      <xsl:template match="/">
+         <xsl:element name="módulo" use-attribute-sets="atr_módulo">
+         </xsl:element>
+      </xsl:template>
+   </xsl:stylesheet>
+..
+
+
+Comentarios
+~~~~~~~~~~~
+
+Para crear comentarios se utiliza ``<xsl:component>``.
+
+
+XSLT con diferentes patrones
+-----------------------------
 
 
 
