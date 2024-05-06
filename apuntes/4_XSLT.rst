@@ -87,7 +87,7 @@ Así las cosas, el documento XSLT de la transformación del XML anterior sería:
 
 
 Formatos de salida
-----------------------------
+~~~~~~~~~~~~~~~~~~
 
 
 
