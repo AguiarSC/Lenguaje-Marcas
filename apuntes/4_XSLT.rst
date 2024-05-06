@@ -485,3 +485,64 @@ La transformación da como resultado el siguiente documento de texto:
 Como podemos ver, el texto TÍTULO no se incluye ya que prevalece la primera plantilla: el elemento cd está más cerca del catálogo (elemento raíz) que del título.
 
 
+Procesar un elemento y sus hijos
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Hay una manera de hacer que el procesamiento de un elemento también procese los patrones correspondientes a sus hijos. Esto se hace usando ``<xsl:apply-templates>`` dentro de un patrón.
+
+- ``xsl:apply-templates`` hace que se apliquen las reglas que siguen a todos los nodos seleccionados.
+  ::
+  
+    <xsl:apply-templates />
+  
+- Puede restringirse con el atributo ``select'' para especificar un subconjunto de nodos. Por ejemplo (apply_templates.xml y apply_templates.xsl), si aplicamos la siguiente transformación al documento anterior.
+  
+  .. code-block:: xml
+  
+    <?xml version="1.0" encoding="UTF-8"?>
+    <xsl:stylesheet version="1.0"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+     <xsl:output encoding="UTF-8" method="text"/>
+     <xsl:template match="/">
+     <xsl:apply-templates />
+     </xsl:template>
+    </xsl:stylesheet>
+
+Al elemento "profesor" se le aplica el patrón predefinido, y por lo tanto copia el texto que contiene en la salida, obteniendo:
+
+``Xaime Louzán``
+
+A veces no queremos que se representen todos los elementos secundarios de un elemento. En estos casos podemos utilizar el atributo "select" de ``<xsl:apply-templates>'' para indicar la expresión XPath que corresponde a aquellos nodos que queremos que sean procesados. Por ejemplo:
+
+.. code-block:: xml
+
+    <xsl:apply-templates select="profesor" />
+
+En este caso, si el elemento "<módulo>" tuviera varios hijos, solo continuaría el procesamiento "<profesor>".
+
+En este ejemplo (apply_templates_select.xml y apply_templates_select.xsl) modificamos el documento XSLT anterior poniendo:
+.. code-block:: xml
+
+    <?xml version="1.0" encoding="utf-8"?>
+    <xsl:stylesheet version="1.0"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    <xsl:output method="xml" indent="yes" />
+    <xsl:template match="profesor">
+     <Profesor />
+    </xsl:template>
+    <xsl:template match="/módulo">
+     <xsl:element name="Módulo">
+     <xsl:apply-templates select="profesor" />
+     </xsl:element>
+    </xsl:template>
+    </xsl:stylesheet>
+
+¡¡OJO!! En este caso, al procesar el elemento raíz "<módulo>", crea el elemento "<Módulo>" en el documento de salida y luego busca algún patrón adecuado para procesar el elemento "<profesor>", lo que provoca el patrón. "<xsl:template match="profesor">". El resultado sería:
+
+.. code-block:: xml
+
+    <?xml version="1.0" encoding="UTF-8"?>
+    <Módulo>
+     <Profesor/>
+    </Módulo>
+
