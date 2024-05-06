@@ -262,6 +262,41 @@ o también podríamos:
    </xsl:stylesheet>
 ..
 
+Una buena razón para utilizar ``<xsl:element>`` es que el contenido del atributo "name" puede estar calculado utilizando expresiones XPath (por ejemplo, a partir de texto, variables, valores devueltos por funciones, etc.). En este caso, la expresión debe estar entre llaves.
+
+.. code-block:: xml
+
+   <?xml version="1.0" encoding="utf-8"?>
+   <?xml-stylesheet type="text/xsl" href="Generar_elementos.xsl" ?>
+   <ciclo>
+       <módulo sesións="5" horas="133">Linguaxes de marcas</módulo>
+   </ciclo>
+
+   <?xml version="1.0" encoding="utf-8"?>
+   <xsl:stylesheet version="1.0 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+   <xsl:template match="/ciclo">
+      <xsl:element name="{concat(name(), '_DAW')}" />
+   </xsl:template>
+   </xsl:stylesheet>
+..
+
+Cuando creamos un nuevo elemento en el documento de salida utilizando ``<xsl:element>``, también podemos especificar sus atributos. Simplemente tendremos que añadir como hijos de este tantos elementos ``<xsl:attribute>`` como necesitemos, indicando en cada uno de ellos su nombre con el atributo ``name``. Su valor será el texto que contenga.
+
+.. code-block:: xml
+
+   <?xml version="1.0" encoding="utf-8"?>
+   <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+   <xsl:template match="/ciclo">
+      <xsl:element name="{concat(name(), '_DAW')}">
+         <xsl:attribute name="duración">2000 horas</xsl:attribute>
+      </xsl:element>
+   </xsl:template>
+   </xsl:stylesheet>
+..
+
+
+
+
 
 
 
