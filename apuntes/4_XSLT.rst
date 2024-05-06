@@ -23,6 +23,7 @@ La transformación a realizar se almacenará en un documento XSLT (.xsl) y se de
 <?xml-stylesheet type="text/xsl" href="Ejemplo.xsl"?>
 
 .. code-block:: xml
+
    <?xml version="1.0" encoding="utf-8"?>
    <?xml-stylesheet type="text/xsl" href="Ejemplo.xsl"?>
    <ciclo>
