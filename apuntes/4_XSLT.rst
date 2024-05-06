@@ -172,7 +172,22 @@ Resumidamente, la transformación se realiza de la siguiente manera:
       * Una vez encontrado el patrón, aplica la transformación definida en el mismo al nodo del documento origen.
       * Proporciona el resultado en un nuevo documento.
 
-Es muy importante tener en cuenta que cuando el procesador encuentra un patrón que hace referencia al nodo que está procesando, después de aplicar la transformación correspondiente, marca al nodo y a todos sus hijos como procesados, por lo que no buscará otro patrón con el que transformarlos.
+Es muy importante tener en cuenta que cuando el procesador encuentra un patrón que hace referencia al nodo que está procesando, después de aplicar la transformación correspondiente, marca al nodo y a todos sus hijos como procesados, por lo que no buscará otro patrón con el que transformarlos. Por ejemplo:
+
+.. code-block:: xml
+
+   <?xml version="1.0" encoding="utf-8"?>
+   <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+   <xsl:template match="ciclo">
+       …
+   </xsl:template>
+   <xsl:template match="módulo">
+       …
+   </xsl:template>
+   </xsl:stylesheet>
+..
+
+El primer nodo del documento origen que procesa es "<ciclo>", y una vez aplicada la transformación que indica su patrón correspondiente, los nodos "<módulo>" y "<profesor>" también quedan marcados como procesados, por lo que el segundo patrón del documento XSLT nunca se ejecutará. Más adelante, se verá cómo se llevan a cabo las transformaciones XSLT con varios patrones.
 
 
 
