@@ -6,7 +6,7 @@ Es un lenguaje XML que se utiliza, junto con XPath, para convertir un documento 
 Para realizar las transformaciones, necesitamos un procesador XSLT. En el proceso de transformación, XSLT utiliza XPath para definir partes del documento fuente que deben coincidir con una o más plantillas predefinidas. Cuando encuentra una coincidencia, XSLT transformará la parte coincidente del documento fuente en el documento resultante.
 
 Estructura del documento XSLT
-----------------------------
+-----------------------------
 
 Comenzaremos con una transformación sencilla de Ejemplo.xml:
 
