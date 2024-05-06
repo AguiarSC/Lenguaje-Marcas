@@ -521,6 +521,7 @@ A veces no queremos que se representen todos los elementos secundarios de un ele
 En este caso, si el elemento "<módulo>" tuviera varios hijos, solo continuaría el procesamiento "<profesor>".
 
 En este ejemplo (apply_templates_select.xml y apply_templates_select.xsl) modificamos el documento XSLT anterior poniendo:
+
 .. code-block:: xml
 
     <?xml version="1.0" encoding="utf-8"?>
