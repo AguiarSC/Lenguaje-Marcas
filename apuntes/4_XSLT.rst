@@ -103,8 +103,11 @@ Elaboración de transformaciones XSLT
 * Se realiza una relación jerárquica (nodos de un árbol).
 * Serie de reglas que determinan la transformación. Cada regla contiene uno o varios elementos del XML.
 * Estas reglas, sintácticamente, tienen tres partes:
+   
    # Etiqueta de apertura que contiene un atributo "match" que describe a qué partes del documento afecta la regla. Su sintaxis debe seguir las especificaciones de XPath. Y debe tener el atributo "name" para definir el nombre de la plantilla.
+   
    # Parte central que describe qué debe hacerse en caso de coincidencia.
+   
    # Etiqueta de cierre.
 
 .. code-block:: xml
