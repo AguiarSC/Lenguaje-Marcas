@@ -165,6 +165,7 @@ Resumidamente, la transformación se realiza de la siguiente manera:
 #. El documento origen se pasa al procesador XSLT.
 #. El procesador carga una hoja de estilos XSLT.
 #. Luego, el procesador:
+
       * Carga los patrones especificados en la hoja de estilo...
       * Recorre el documento XML origen, nodo por nodo...
       * Para cada nodo, busca un patrón que lo referencie en su atributo "match".
