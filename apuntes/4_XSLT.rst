@@ -196,6 +196,9 @@ El primer nodo del documento origen que procesa es ``<ciclo>``, y una vez aplica
 Creación de texto y elementos
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Texto
+~~~~~
+
 El elemento ``<xsl:text>`` se utiliza para incluir texto en el documento resultante. El resultado es similar a escribir directamente el texto dentro del patrón, pero en este caso tenemos un mayor control sobre los espacios y los saltos de línea. Por ejemplo:
 
 .. code-block:: xml
@@ -232,12 +235,32 @@ El elemento ``<xsl:text>`` deberá de contener solamente texto, sin otras etique
 ..
 
 
+Elementos
+~~~~~~~~~
 
+Dentro de un patrón podemos emplear ``<xsl:element>`` para crear un nuevo elemento en el documento de salida. Es obligatorio indicar el nombre del nuevo elemento mediante el atributo ``name``. Por ejemplo, si quisiéramos obtener un documento de salida con el elemento raíz ``documento`` vacío:
 
+.. code-block:: xml
 
+   <?xml version="1.0" encoding="utf-8"?>
+   <xsl:stylesheet version="1.0 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+   <xsl:template match="/">
+      <documento />
+   </xsl:template>
+   </xsl:stylesheet>
+..
 
+o también podríamos:
 
+.. code-block:: xml
 
+   <?xml version="1.0" encoding="utf-8"?>
+   <xsl:stylesheet version="1.0 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+   <xsl:template match="/">
+      <xsl:element name="documento" />
+   </xsl:template>
+   </xsl:stylesheet>
+..
 
 
 
