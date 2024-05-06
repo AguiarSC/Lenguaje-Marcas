@@ -8,7 +8,7 @@ Para realizar las transformaciones, necesitamos un procesador XSLT. En el proces
 Estructura del documento XSLT
 -----------------------------
 
-Comenzaremos con una transformación sencilla de Ejemplo.xml:
+Comenzaremos con una transformación sencilla:
 
 .. code-block:: xml
 
@@ -50,7 +50,7 @@ El elemento raíz del XSLT puede ser cualquiera de estas dos etiquetas, puesto q
 ..
 
 
-Además, deberá de indicar la versión, así como una referencia en el documento al espacio de nombres (las qe contienen las instrucciones destinadas al procesador XSLT). Como este tipo de documentos suele contener otras etiquetas no exclusivas del procesador, es aconsejable emplear un prefijo (comúnmente xsl):
+Además, deberá de indicar la versión, así como una referencia en el documento al espacio de nombres (las qe contienen las instrucciones destinadas al procesador XSLT). Como este tipo de documentos suele contener otras etiquetas no exclusivas del procesador, es aconsejable emplear un prefijo (comúnmente ``xsl``):
 
 .. code-block:: xml
 
@@ -121,7 +121,7 @@ Elaboración de transformaciones XSLT
 Patrones XSLT
 ~~~~~~~~~~~~~
 
-Los patrones indican una transformación que se realizará en ciertos elementos del documento original. La forma más común de indicar los elementos del documento original a los que se aplicará el patrón es mediante el uso de una expresión XPath con el atributo "match". Por ejemplo, si queremos aplicar el patrón al documento XML completo, utilizaremos el valor "/" en el atributo match. De esta manera se selecciona el elemento raíz y se aplica la plantilla a todo el documento XML.
+Los patrones indican una transformación que se realizará en ciertos elementos del documento original. La forma más común de indicar los elementos del documento original a los que se aplicará el patrón es mediante el uso de una expresión XPath con el atributo ``match``. Por ejemplo, si queremos aplicar el patrón al documento XML completo, utilizaremos el valor ``/`` en el atributo ``match``. De esta manera se selecciona el elemento raíz y se aplica la plantilla a todo el documento XML.
 
 .. code-block:: xml
 
@@ -190,13 +190,13 @@ Es muy importante tener en cuenta que cuando el procesador encuentra un patrón 
    </xsl:stylesheet>
 ..
 
-El primer nodo del documento origen que procesa es "<ciclo>", y una vez aplicada la transformación que indica su patrón correspondiente, los nodos "módulo" y "profesor" también quedan marcado como procesados, por lo que el segundo patrón del documento XSLT nunca se ejecutará. Más adelante, se verá cómo se llevan a cabo las transformaciones XSLT con varios patrones.
+El primer nodo del documento origen que procesa es ``<ciclo>``, y una vez aplicada la transformación que indica su patrón correspondiente, los nodos ``módulo`` y ``profesor`` también quedan marcado como procesados, por lo que el segundo patrón del documento XSLT nunca se ejecutará. Más adelante, se verá cómo se llevan a cabo las transformaciones XSLT con varios patrones.
 
 
 Creación de texto y elementos
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-El elemento "<xsl:text>" se utiliza para incluir texto en el documento resultante. El resultado es similar a escribir directamente el texto dentro del patrón, pero en este caso tenemos un mayor control sobre los espacios y los saltos de línea. Por ejemplo:
+El elemento ``<xsl:text>`` se utiliza para incluir texto en el documento resultante. El resultado es similar a escribir directamente el texto dentro del patrón, pero en este caso tenemos un mayor control sobre los espacios y los saltos de línea. Por ejemplo:
 
 .. code-block:: xml
 
