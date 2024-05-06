@@ -1,7 +1,3 @@
-
-Sintaxis de XSLT
-===============
-
 ¿Qué es XSLT?
 ----------------------------
 
@@ -16,7 +12,11 @@ Comenzaremos con una transformación sencilla de Ejemplo.xml:
 
 .. code-block:: xml
 
-   <?xml version="1.0" encoding="utf-8"?><ciclo><módulo sesións="5" horas="133">Linguaxes de marcas</módulo><profesor>Xaime Louzán</profesor></ciclo>
+   <?xml version="1.0" encoding="utf-8"?>
+<ciclo>
+   <módulo sesións="5" horas="133">Linguaxes de marcas</módulo>
+   <profesor>Xaime Louzán</profesor>
+</ciclo>
 
 
 La transformación a realizar se almacenará en un documento XSLT (.xsl) y se deberá vincular con el XML mediante: 
