@@ -193,18 +193,54 @@ Es muy importante tener en cuenta que cuando el procesador encuentra un patrón 
 El primer nodo del documento origen que procesa es "<ciclo>", y una vez aplicada la transformación que indica su patrón correspondiente, los nodos "módulo" y "profesor" también quedan marcado como procesados, por lo que el segundo patrón del documento XSLT nunca se ejecutará. Más adelante, se verá cómo se llevan a cabo las transformaciones XSLT con varios patrones.
 
 
-Patrones XSLT predefinidos
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+Creación de texto y elementos
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Cuando se emplean patrones fijos, estos se aplican a aquellos elementos que no han sido procesados por ningún otro patrón.
-Cuando usamos las expresiones "/" o "/ciclo", estas cubren todos sus hijos y, por lo tanto, todo el documento original. No queda ningún elemento del documento original sin procesar.
+El elemento "<xsl:text>" se utiliza para incluir texto en el documento resultante. El resultado es similar a escribir directamente el texto dentro del patrón, pero en este caso tenemos un mayor control sobre los espacios y los saltos de línea. Por ejemplo:
 
-Al usar la expresión "/ciclo/módulo" en el patrón (<xsl:template match="/ciclo/módulo">), el resultado obtenido no es el que inicialmente podríamos esperar. Los elementos "<ciclo>" y "<profesor>" no están cubiertos por él; por lo tanto, el procesador XSLT les aplica un patrón predefinido. Básicamente, el comportamiento de estos patrones predefinidos es procesar el elemento y todos sus hijos, copiando al documento de salida el texto que contienen.
+.. code-block:: xml
 
-En nuestro ejemplo (Exemplo02b.xml y Exemplo02b.xsl):
+   <?xml version="1.0" encoding="utf-8"?>
+   <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+   <xsl:template match="/">
+      Documento HTML
+   </xsl:template>
+   </xsl:stylesheet>
+..
 
-* Al procesar el elemento "<ciclo>", el procesador XSLT no encuentra un patrón y aplica el patrón predefinido. Esto copia al documento de salida el salto de línea que existe antes del elemento "<módulo>". Por eso aparece una línea vacía al inicio del documento resultante.
+.. code-block:: xml
 
-* El elemento "<módulo>" está cubierto por el patrón "/ciclo/módulo", y al procesarlo se copian en el documento de salida las etiquetas y el contenido correspondientes al documento HTML.
+   <?xml version="1.0" encoding="utf-8"?>
+   <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+   <xsl:template match="/">
+      <xsl:text>Documento HTML</xsl:text>
+   </xsl:template>
+   </xsl:stylesheet>
+..
 
-* Por último, el procesador XSLT llega al elemento "<profesor>", que tampoco tiene un patrón específico, por lo que también copia su contenido (el nombre del profesor) al documento de salida.
+Estos dos bloques de código se diferencian únicamente en un salto de línea y unos espacios. 
+El elemento ``<xsl:text>`` deberá de contener solamente texto, sin otras etiquetas, por lo que el siguiente bloque dará error al procesarlo:
+
+.. code-block:: xml
+
+   <?xml version="1.0" encoding="utf-8"?>
+   <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+   <xsl:template match="/">
+      <xsl:text><HTML></xsl:text>
+   </xsl:template>
+   </xsl:stylesheet>
+..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
