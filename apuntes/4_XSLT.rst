@@ -412,14 +412,13 @@ Ya hemos visto lo que sucede cuando no existe un patrón para algún elemento de
 .. code-block:: xml
 
    <?xml version="1.0" encoding="utf-8"?>
-   <xsl:stylesheet version="1.0"
-   xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+   <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
    <xsl:output method="xml" indent="yes" />
    <xsl:template match="/módulo/profesor">
-    <Profesor />
+      <Profesor />
    </xsl:template>
    <xsl:template match="/módulo">
-    <Módulo />
+      <Módulo />
    </xsl:template>
    </xsl:stylesheet>
 
@@ -437,7 +436,7 @@ Obtenemos como salida.
 .. code-block:: xml
 
    <?xml version="1.0" encoding="UTF-8"?>
-    <Módulo />
+      <Módulo />
 
 
 ¡¡OJO!! El primer patrón no se procesa. ¿Cuál es la explicación de este comportamiento?
