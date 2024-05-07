@@ -4,16 +4,12 @@ Esquemas XML
 Introducción
 ------------
 
-XML Schema es un lenguaje de esquema utilizado para describir la estructura y las restricciones de los contenidos de los documentos XML de una forma muy precisa, más allá de las normas sintácticas impuestas por el propio lenguaje XML. Se consigue así una percepción del tipo de documento con un nivel alto de abstracción. Fue desarrollado por el World Wide Web Consortium (W3C) y alcanzó el nivel de recomendación en mayo de 2001.
+XML Schema es un lenguaje de esquema utilizado para describir la estructura y las restricciones de los contenidos de los documentos XML de una forma muy precisa, más allá de las normas sintácticas impuestas por el propio lenguaje XML.
 
-XML Schema está pensado para proporcionar una mayor potencia expresiva que las DTD, menos capaces al describir los documentos a nivel formal.
-
-Las ventajas que aporta son:
-
--  Se basa en XML, por lo tanto tiene todas las ventajas de un documento XML.
--  Tiene una gran variedad de tipos de datos.
--  Tiene un modelo de datos abierto.
--  Soporta espacios de nombres (singularidad de los nombres, algo que no podíamos tener con los DTDs).
+-  Ventajas de un documento XML.
+-  Gran variedad de tipos de datos.
+-  Modelo de datos abierto.
+-  Soporta espacios de nombres (a diferencia de los DTDs).
 -  Soporta tipos en los atributos.
 
 Nodo raíz ``schema``
