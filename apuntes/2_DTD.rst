@@ -238,12 +238,14 @@ Para ello creamos un fichero de texto con extensión ``.dtd``.
 
 Vamos describiendo cada elemento uno a uno desde el nodo raíz hasta el último elemento.
 
-Declaración DOCTYPE
--------------------
+Declaración DTD. DOCTYPE
+------------------------
 
+La declaración de un DTD puede ser externa, interna o mixta. Esta declaración debe de ir en el DOCTYPE (Document Type Declaration).
 Esta declaración es necesaria en el documento XML. Sirve para especificar a que DTD está unido el documento. Siempre debe ir colocado después del prólogo y antes del nodo raíz.
 
-Aquí tenemos las tres formas de especificar un DTD:
+Declaración externa:
+Se utiliza una ubicación externa donde se encuentra el DTD. Esta ubicación puede ser pública (se indica en el DOCTYPE mediante la palabra ``SYSTEM``) o privada (mediante una URL pública con la palabra ``PUBLIC``. Esta forma permite compartir un DTD entre varios XML, evitando reescritura de código. 
 
 ``SYSTEM``
    Se utiliza en el caso de DTDs “personales”. Para especificar un fichero local:
@@ -259,7 +261,8 @@ Aquí tenemos las tres formas de especificar un DTD:
 
       <!DOCTYPE nodo_raiz PUBLIC "-//OASIS//DTD Libro XML//EN" "../dtds/cap.dtd">
 
-También es posible incrustar la DTD internamente en el documento XML:
+Declaración interna:
+También es posible incrustar la DTD internamente en el documento XML. Se incluye directamente en el DOCTYPE del documento XML. 
 
 .. code-block:: xml
 
@@ -274,7 +277,25 @@ También es posible incrustar la DTD internamente en el documento XML:
      <apartado>Primeros pasos con DTDs.</apartado>
    </capitulo>
 
+Declaración mixta:
 Incluso es posible tener una DTD interna y otra externa (prevalece la interna).
+
+.. code-block:: xml
+   <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+   <!DOCTYPE email SYSTEM "email.dtd" [
+      <!ELEMENT email (date, to, from)>
+      ]>
+   <email>
+      <date>2020-03-05</date>
+      <to>Tupu</to>
+      <from>Tamadre</from>
+   </email>
+
+.. code-block:: xml
+   <!ELEMENT date (#PCDATA)>
+   <!ELEMENT to (#PCDATA)>
+   <!ELEMENT from (#PCDATA)>
+
 
 Entidades
 ---------
