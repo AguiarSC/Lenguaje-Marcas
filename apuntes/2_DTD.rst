@@ -281,6 +281,7 @@ Declaración mixta:
 Incluso es posible tener una DTD interna y otra externa (prevalece la interna).
 
 .. code-block:: xml
+
    <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
    <!DOCTYPE email SYSTEM "email.dtd" [
       <!ELEMENT email (date, to, from)>
@@ -290,12 +291,14 @@ Incluso es posible tener una DTD interna y otra externa (prevalece la interna).
       <to>Tupu</to>
       <from>Tamadre</from>
    </email>
+..
 
 .. code-block:: xml
+
    <!ELEMENT date (#PCDATA)>
    <!ELEMENT to (#PCDATA)>
    <!ELEMENT from (#PCDATA)>
-
+..
 
 Entidades
 ---------
