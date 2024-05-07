@@ -402,3 +402,68 @@ Ejemplo:
    <!ELEMENT familiares %coches;>
    <!ELEMENT turismos %coches;>
    <!ELEMENT deportivos %coches;>
+
+
+Secciones condicionales
+-----------------------
+
+Es posible incluir o ignorar partes de la declaración de un DTD mediante las palabras clave ``INCLUDE`` e ``IGNORE``, respectivamente.
+El uso de las secciones condicionales suele estar ligado a entidades paramétricas. Consideremos el siguiente documento XML y su fichero .dtd:
+
+.. code-block:: dtd
+
+   <?xml version="1.0" encoding="UTF-8" standalone="no">
+   <!DOCTYPE persona SYSTEM "persona.dtd">
+   <persona>
+      <nombre>Elsa</nombre>
+      <edad>23</edad>
+   </persona>
+..
+
+.. code-block:: dtd
+
+   <!ENTITY % datos_basicos "INCLUDE">
+   <!ENTITY % datos_ampliados "IGNORE">
+   <![ %datos_basicos; [
+      <!ELEMENT persona (nombre, edad)>
+   ]]>
+   <![ %datos_ampliados; [
+      <!ELEMENT persona (nombre, apellidos, edad, ciudad)>
+   ]]>
+   <!ELEMENT nombre (#PCDATA)>
+   <!ELEMENT apellidos (#PCDATA)>
+   <!ELEMENT edad (#PCDATA)>
+   <!ELEMENT ciudad (#PCDATA)>
+..
+
+En este caso, se tiene en cuenta el código dentro de %datos_basicos. En cambio, se tendrían en cuenta %datos_ampliados si el dtd fuera:
+
+.. code-block:: dtd
+
+   <!ENTITY % datos_basicos "IGNORE">
+   <!ENTITY % datos_ampliados "INCLUDE">
+   <![ %datos_basicos; [
+      <!ELEMENT persona (nombre, edad)>
+   ]]>
+   <![ %datos_ampliados; [
+      <!ELEMENT persona (nombre, apellidos, edad, ciudad)>
+   ]]>
+   <!ELEMENT nombre (#PCDATA)>
+   <!ELEMENT apellidos (#PCDATA)>
+   <!ELEMENT edad (#PCDATA)>
+   <!ELEMENT ciudad (#PCDATA)>
+..
+
+Entonces, veríamos el xml correspondiente así:
+
+.. code-block:: dtd
+
+   <?xml version="1.0" encoding="UTF-8" standalone="no">
+   <!DOCTYPE persona SYSTEM "persona.dtd">
+   <persona>
+      <nombre>Elsa</nombre>
+      <apellidos>Castro Casa</apellidos>
+      <edad>23</edad>
+      <ciudad>Lugo</ciudad>
+   </persona>
+..
