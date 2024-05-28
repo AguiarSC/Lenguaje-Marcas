@@ -764,6 +764,7 @@ SOLUCIÓN
 ========
 
 .. code-block:: xsd
+
 	<!-- Esquema para el grupo de atributos (nombres y apellidos) -->
 	<!-- nombres.xsd -->
 	<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
