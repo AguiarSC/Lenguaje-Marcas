@@ -573,7 +573,149 @@ SOLUCIÓN
 
 
 
+EJERCICIO 4
+-----------
 
+ENUNCIADO
+=========
+
+::
+
+	Elaboraremos un esquema XML teniendo en cuenta que:
+
+	- Introducimos un elemento para almacenar o NSS dos empregados, que deberá estar formado por doce díxitos.
+
+	- Queremos introducir información de qué empregados son os xefes de departamento, validando que estes sexan 
+	empregados válidos.
+
+	- Crearemos un elemento contactos que guarde ata 4 teléfonos de cada empregado. No caso de non coñecer ningún 
+	teléfono do empregado deberemos deixar constancia disto asignandolle un valor nulo a este elemento. O formato 
+	do teléfono será de nove díxigos. Por exemplo: <contactos>989898989 987654321 978787878</contactos>
+
+	Un ejemplo de código XML sería: 
+
+
+.. code-block:: xml
+
+	<?xml version="1.0" encoding="UTF-8"?>
+	<empresa xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="empresa.xsd">
+	    <empregado>
+	        <nss>272727272727</nss>
+	        <nome>Iria</nome>
+	        <departamento>IFC</departamento>
+	        <contactos>999888777 987987789</contactos>
+	    </empregado>
+	    <empregado>
+	        <nss>151515151515</nss>
+	        <nome>Mariña</nome>
+	        <departamento>IFC</departamento>
+	        <contactos>989898989 987654321 978787878</contactos>
+	    </empregado>
+	    <empregado>
+	        <nss>272727363636</nss>
+	        <nome>Xoel</nome>
+	        <departamento>CON</departamento>
+	    </empregado>
+	    <departamento codigo="IFC" xefe="272727363636">
+	        <nome>Informática</nome>
+	    </departamento>
+	    <departamento codigo="CON" xefe="272727272727">
+	        <nome>Contabilidade</nome>
+	    </departamento>
+	</empresa>
+
+..
+
+
+SOLUCIÓN
+========
+
+.. code-block:: xsd
+
+	<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:annotation>
+	    <xs:documentation>
+	        Valida que o empregado pertenza a un departamento existente. 
+	        Garda información de quén é o xefe de departamento.
+			    O NSS debe ter 12 díxitos.
+			    Poden almacenarse ata 4 teléfonos nunha lista chamada contactos.
+	    </xs:documentation>
+	</xs:annotation>
+	<xs:element name="empresa">
+	  <xs:complexType>
+	    <xs:sequence>
+	        <xs:element name="empregado" type="tipoEmpregado" maxOccurs="200"/>
+	        <xs:element name="departamento" type="tipoDepartamento" maxOccurs="8"/>
+	    </xs:sequence>
+	  </xs:complexType>
+	 
+	 <!-- Os departamentos onde traballan os empleados deben existir--> 
+	  <xs:key name="depUnico">
+	    <xs:selector xpath="departamento"/>
+	    <xs:field xpath="@codigo"/>
+	  </xs:key>
+	  <xs:keyref name="departamentoPertence" refer="depUnico">
+	        <xs:selector xpath="empregado"/>
+	        <xs:field xpath="departamento"/>
+	  </xs:keyref> 
+	  
+	  <!--Queremos introducir información de qué empregados son os xefes de departamento,
+	   validando que estes sexan empregados válidos -->
+	  <xs:key name="xefeDepartamento">
+	    <xs:selector xpath="empregado"/>
+	    <xs:field xpath="nss"/>
+	  </xs:key>
+	  <xs:keyref name="departamentoXefe" refer="xefeDepartamento">
+	        <xs:selector xpath="departamento"/>
+	        <xs:field xpath="@xefe"/>
+	  </xs:keyref>
+	</xs:element>
+	
+	  <xs:complexType name="tipoEmpregado">
+	    <xs:sequence>
+	        <xs:element name="nss" type="tipoNSS"/>
+	        <xs:element name="nome" type="xs:string"/>
+	        <xs:element name="departamento" type="xs:string"/>
+	        <!--Crea un elemento contactos que permita gardar ata catro teléfonos de cada empregado.-->
+	        <xs:element name="contactos" type="telefonos" minOccurs="0"/>
+	    </xs:sequence>
+	  </xs:complexType>
+	  
+	  <xs:complexType name="tipoDepartamento">
+	    <xs:sequence>
+	        <xs:element name="nome" type="xs:string"/>
+	    </xs:sequence>
+	    <xs:attribute name="codigo" type="xs:string" use="required"/>
+	    <xs:attribute name="xefe" type="tipoNSS" use="required"/>
+	  </xs:complexType>  
+	
+	<!--  O NSS dos empregados, que deberá estar formado por doce díxitos  -->
+	  <xs:simpleType name="tipoNSS">
+	    <xs:restriction base="xs:string">
+	            <xs:pattern value="[0-9]{12}"/>
+	    </xs:restriction>
+	  </xs:simpleType>
+	
+	<!--O formato do teléfono será de nove díxigos.-->
+	  <xs:simpleType name="tipoTelefono">
+	    <xs:restriction base="xs:string">
+	            <xs:pattern value="[0-9]{9}"/>
+	    </xs:restriction>
+	  </xs:simpleType>
+	
+	  <xs:simpleType name="listaTelefonos">
+	     <xs:list itemType="tipoTelefono"/>
+	  </xs:simpleType>
+	
+	  <xs:simpleType name="telefonos">
+	    <xs:restriction base="listaTelefonos">
+	        <xs:maxLength value="4"/>
+	    </xs:restriction>
+	  </xs:simpleType>
+	
+	</xs:schema>
+
+..
 
 
 
