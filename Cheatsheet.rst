@@ -93,7 +93,7 @@ En todos estos casos:
 
 - ``tipo`` es el tipo de archivo (gif, jpg, etc).
 
-- ``fpi``+ es un identificador público formal (Formal Public Identifier).
+- ``fpi`` es un identificador público formal (Formal Public Identifier).
 
 
 Declaración de notaciones
