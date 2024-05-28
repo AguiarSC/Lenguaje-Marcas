@@ -463,16 +463,17 @@ ENUNCIADO
 	<?xml version="1.0" encoding="UTF-8"?>
 	<edificio alquiler="verdadeiro" valor="410.50" xmins:xsi="http://www.w3.org/2001/XML5chema-instance" xsi:noNamespaceSchemaLocation="edificio.xsd">
 	    <enderezo>
-		<rua>Ponzano</rua>
-		<numero>66</numero>
-		<poboacion>Madrid</poboacion>
-		<provincia>Madrid</provincia>
-		<codigoPostal>28003</codigoPostal>
+	        <rua>Ponzano</rua>
+	        <numero>66</numero>
+	        <poboacion>Madrid</poboacion>
+	        <provincia>Madrid</provincia>
+	        <codigoPostal>28003</codigoPostal>
 	    </enderezo>
-	    <dataConstrucion mes="Febreiro" ano-"1989" I>
-		<material>formigengmaterial></material>
+	    <dataConstrucion mes="Febreiro" ano="1989" I>
+	        <material>formigengmaterial</material>
 	    </dataConstrucion>
 	</edificio>
+
 
 ..
 
