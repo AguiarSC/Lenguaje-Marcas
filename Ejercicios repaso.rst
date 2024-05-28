@@ -3,9 +3,8 @@ EJERCICIO 1
 
 ::
 
-	Definir una DTD que valide el documento XML que se muestra a continuación.
-	Construir un documento XML con DTD interna y otro con DTD externa. Comprobar la buena
-	formación y la validez del documento en ambos casos.
+	Definir una DTD que valide el documento XML que se muestra a continuación. Construir un documento XML con DTD interna y otro con DTD externa. 
+	Comprobar la buena formación y la validez del documento en ambos casos.
 	
 	Se deben tener en cuenta las siguientes características:
 	
