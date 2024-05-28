@@ -393,4 +393,39 @@ SOLUCIÓN DTD INTERNO
 	</cartelera>
 
 
+SOLUCIÓN DTD EXTERNO
+====================
 
+.. code-block:: xml
+
+	<!-- Añadir esto al xml original -->
+	<?xml version="1.1" encoding="UTF-8"?>
+	<!DOCTYPE cartelera SYSTEM "Cartelera.dtd">
+
+..
+
+.. code-block:: dtd
+
+	<!-- DEFINICIÓN DE ELEMENTOS -->
+	 <!ELEMENT cartelera (película)*>
+	 <!ELEMENT película (título, título_original?, nacionalidad, género, (clasificación | sin_clasificar), sinopsis, director, reparto, web?, cartel?) >
+	 <!ELEMENT título (#PCDATA)>
+	 <!ELEMENT título_original (#PCDATA)>
+	 <!ELEMENT nacionalidad (#PCDATA)>
+	 <!ELEMENT género (#PCDATA)>
+	 <!ELEMENT clasificación EMPTY>
+	 <!ELEMENT sin_clasificar EMPTY>
+	 <!ELEMENT sinopsis (#PCDATA)>
+	 <!ELEMENT director (#PCDATA)>
+	 <!ELEMENT reparto (actor)+>
+	 <!ELEMENT web (#PCDATA)>
+	 <!ELEMENT cartel (#PCDATA)>
+	 <!ELEMENT actor (#PCDATA)>
+	
+	 <!-- Definición de atributos -->
+	 <!ATTLIST película código ID #REQUIRED>
+	 <!ATTLIST película duración CDATA "">
+	 <!ATTLIST película año CDATA "2003">
+	 <!ATTLIST clasificación edad (8 | 12 | 16 | 18 | tp) #REQUIRED>
+
+..
