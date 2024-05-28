@@ -461,8 +461,7 @@ ENUNCIADO
 .. code-block:: xml
 
 	<?xml version="1.0" encoding="UTF-8"?>
-	<edificio alquiler="verdadeiro" valor="410.50" xmins:xsi="http://www.w3.org/2001/XML5chema-instance" 
-	xsi:noNamespaceSchemaLocation="edificio.xsd">
+	<edificio alquiler="verdadeiro" valor="410.50" xmins:xsi="http://www.w3.org/2001/XML5chema-instance" xsi:noNamespaceSchemaLocation="edificio.xsd">
 	    <enderezo>
 	        <rua>Ponzano</rua>
 	        <numero>66</numero>
