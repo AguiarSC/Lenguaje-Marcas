@@ -2,6 +2,7 @@ EJERCICIO 1
 -----------
 
 ::
+
 	Definir una DTD que valide el documento XML que se muestra a continuación. Construir un documento XML con DTD interna y otro con DTD externa. Comprobar la buena formación y la validez del documento en ambos casos.
 	
 	Se deben tener en cuenta las siguientes características:
@@ -16,4 +17,4 @@ EJERCICIO 1
 	
 	* El iva tiene que aparecer siempre, y su valor no puede contener caracteres especiales.
 
-::
+
