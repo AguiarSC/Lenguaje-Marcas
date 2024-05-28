@@ -76,14 +76,12 @@ ENUNCIADO
 	</factura>
 
 
-SOLUCIÓN
-========
+SOLUCIÓN DTD INTERNO
+====================
 
 .. code-block:: xml
 
 	<?xml version="1.1" encoding="UTF-8"?>
-	<!-- ********************************************** -->
-	<!-- DEFINICIÓN DEL TIPO DE DOCUMENTO -->
 	<!DOCTYPE factura [
 	    <!-- Definición de elementos -->
 	    <!ELEMENT factura (datos_empresa, datos_cliente, datos_factura)>
@@ -173,6 +171,8 @@ SOLUCIÓN
 	</factura> 
 
 
+SOLUCIÓN DTD EXTERNO
+====================
 
 
 
