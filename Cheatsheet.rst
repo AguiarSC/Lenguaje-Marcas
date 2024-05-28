@@ -1,11 +1,8 @@
 DTD
 ---
 
-Referencia a DTD
-================
-
 DTD en el propio documento
----------------------------
+==========================
 
 .. code-block:: xml
 
@@ -14,14 +11,14 @@ DTD en el propio documento
     ]>
 
 DTD en un documento externo para una única aplicación
------------------------------------------------------
+=====================================================
 
 .. code-block:: xml
 
     <!DOCTYPE nombre SYSTEM "uri">
 
 Combinar una DTD externa con una DTD interna
---------------------------------------------
+============================================
 
 .. code-block:: xml
 
@@ -30,14 +27,14 @@ Combinar una DTD externa con una DTD interna
     ]>
 
 DTD en un documento externo para varias aplicaciones
------------------------------------------------------
+====================================================
 
 .. code-block:: xml
 
     <!DOCTYPE nombre PUBLIC "fpi" "uri">
 
 Combinar una DTD externa con una DTD interna
---------------------------------------------
+============================================
 
 .. code-block:: xml
 
@@ -51,18 +48,15 @@ En todos estos casos:
 - "fpi" es un identificador público formal (Formal Public Identifier).
 
 
-Declaración de entidades
-=========================
-
 Entidades internas
--------------------
+==================
 
 .. code-block:: xml
 
     <!ENTITY nombreEntidad "valorEntidad">
 
 Entidad externa (archivo de texto)
------------------------------------
+==================================
 
 .. code-block:: xml
 
@@ -70,7 +64,7 @@ Entidad externa (archivo de texto)
     <!ENTITY nombreEntidad PUBLIC "fpi" "uri">
 
 Entidad externa (archivo no de texto)
---------------------------------------
+=====================================
 
 .. code-block:: xml
 
@@ -78,7 +72,7 @@ Entidad externa (archivo no de texto)
     <!ENTITY nombreEntidad PUBLIC "fpi" "uri" NDATA tipo>
 
 Entidades paramétricas
------------------------
+======================
 
 .. code-block:: xml
 
@@ -100,18 +94,15 @@ Declaración de notaciones
 Las notaciones se usan en XML para definir las entidades externas que no va a analizar en procesador XML (aunque sí lo hará la aplicación que trate un documento). Para hacer referencia estas entidades no se utiliza la notación habitual (&nombreEntidad;), sino que se utiliza el nombre de la entidad directamente.
 
 
-Declaración de elementos
-=========================
-
 Elementos
----------
+=========
 
 .. code-block:: xml
 
     <!ELEMENT nombreElemento (contenido)>
 
 Contenido
----------
+=========
 
 - EMPTY: elemento vacío.
 - (#PCDATA): texto
@@ -124,11 +115,8 @@ Contenido
 - (): agrupar expresiones.
 
 
-Declaración de atributos
-=========================
-
 Atributos
----------
+=========
 
 .. code-block:: xml
 
@@ -147,7 +135,7 @@ En la que:
 - "valorInicialAtributo" es el valor predeterminado del atributo (aunque también puede indicar otras cosas).
 
 Tipos de atributos
--------------------
+==================
 
 - CDATA: caracteres (sin restricciones).
 - NMTOKEN: letras, dígitos, y los caracteres punto ".", guión "-", subrayado "_" y dos puntos ":".
@@ -161,7 +149,7 @@ Tipos de atributos
 - NOTATION: notación definida en la DTD.
 
 Valores iniciales
-------------------
+=================
 
 - #REQUIRED: el atributo es obligatorio, aunque no se especifica ningún valor predeterminado.
 - #IMPLIED: el atributo no es obligatorio y no se especifica ningún valor predeterminado.
