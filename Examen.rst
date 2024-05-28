@@ -42,7 +42,7 @@ b) Realiza un documento DTD, reservas.dtd, que valide el XML creado. (2,5 puntos
 reservas.dtd
 ------------
 
-.. code-block:: xml
+.. code-block:: dtd
 
     <?xml version="1.0" encoding="UTF-8"?>
     <!ELEMENT reservas (reserva*, cliente*)>
