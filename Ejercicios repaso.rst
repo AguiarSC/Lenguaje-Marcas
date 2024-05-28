@@ -572,7 +572,6 @@ SOLUCIÓN
 ..
 
 
-
 EJERCICIO 4
 -----------
 
@@ -719,11 +718,159 @@ SOLUCIÓN
 
 
 
+EJERCICIO 5
+-----------
+
+ENUNCIADO
+=========
+
+::
+
+	Elaboraremos un esquema XML teniendo en cuenta que:
+
+	- O grupo de atributos creado para o nome completo e a validación dos nomes e apelidos debe gardarse nun esquema 
+	xml aparte e facer referencia a este dende o noso esquema.
+
+	- O esquema coas definicións comúns debe estar documentado para indicar as definicións que contén.
+
+	- Para os alumnos debemos gardar a súa altura. A altura dun alumno pode tomar os valores.
+
+	- Alto, Baixo ou un número positivo maior que 20 que gardará a altura en cm.
+
+	Un ejemplo de código XML sería: 
 
 
+.. code-block:: xml
+
+	<?xml version="1.0" encoding="UTF-8"?>
+	<instituto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="alumno.xsd">
+	    <alumno numExpediente="123" nome="Alicia María" apelido1="Casal" apelido2="Ferreiro">
+	        <altura>156</altura>
+	    </alumno>
+	    <alumno numExpediente="155" nome="Paloma" apelido1="Pereiró">
+	        <altura>Baixo</altura>
+	    </alumno>
+	    <profesor NRP="1234A590" nome="Carme" apelido1="Bouza" apelido2="Dominguez"/>
+	    <profesor NRP="3332A590" nome="Mariña" apelido1="Cerviño" apelido2="Dominguez"/>
+	    <alumno numExpediente="3442" nome="Fernando" apelido1="Puga" apelido2="Prado">
+	        <altura>178</altura>
+	    </alumno>
+	</instituto>
+
+..
 
 
+SOLUCIÓN A
+==========
+
+.. code-block:: xsd
+
+	<?xml version="1.0" encoding="UTF-8"?>
+	<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:include schemaLocation="alumno_2.xsd"/>
+	<xs:annotation>
+	    <xs:documentation>
+	       Definicións comúns para validar o seguinte:
+	       * Nomes que so poden ter letras (inluíndo acentos e ñ) e espazos en branco.
+	       * A altura, que pode tomar os valores Alto, Baixo ou a altura en cm (valida que non sexa menor que 20)
+	    </xs:documentation>
+	</xs:annotation>
+	
+	<!--Para os alumnos debemos gardar a súa altura. A altura dun alumno pode tomar os valores Alto, Baixo 
+	ou un número positivo maior que 20 que gardará a altura en cm-->
+	<xs:simpleType name="tipoAltura">
+	    <xs:union>
+	        <xs:simpleType>
+		   	    	<xs:restriction base="xs:string">
+				        	<xs:enumeration value="Alto"/>
+				        	<xs:enumeration value="Baixo"/>
+		       		</xs:restriction>
+		    	</xs:simpleType>
+			    <xs:simpleType>
+		   	    	<xs:restriction base="xs:unsignedByte">
+					        <xs:minInclusive value="20"/>
+		   		    </xs:restriction>
+			    </xs:simpleType>
+		  </xs:union>
+	</xs:simpleType>
+	
+		<xs:element name="instituto">
+			<xs:complexType>
+				<xs:choice maxOccurs="unbounded">
+					  <xs:element ref="alumno"/>
+					  <xs:element ref="profesor"/>
+				</xs:choice>
+			</xs:complexType>
+		</xs:element>
+		
+		<xs:element name="alumno">
+			<xs:complexType>
+			   	<xs:sequence>
+				      <xs:element name="altura" type="tipoAltura" minOccurs="0"/>
+			   	</xs:sequence>
+			  	<xs:attribute name="numExpedente" type="tipoNumExpedente"
+	          use="required"/>
+				  <xs:attributeGroup ref="grupoNome"/>
+			</xs:complexType>
+		</xs:element>
+		
+		<xs:element name="profesor">
+			<xs:complexType>
+				  <xs:attribute name="NRP" type="tipoNRP" use="required"/>
+				  <xs:attributeGroup ref="grupoNome"/>
+			</xs:complexType>
+		</xs:element>
+	
+	<!-- O número de expedente debe constar de 3 ou 4 díxitos. -->
+		<xs:simpleType name="tipoNumExpedente">
+			<xs:restriction base="xs:string">
+				<xs:pattern value="\d{3,4}"/>
+			</xs:restriction>
+		</xs:simpleType>
+		
+		<!--O NRP debe comezar por 3 ou 4 díxitos, seguidos dunha letra entre a A e a E, 
+	  e a continuación outros 3 díxitos. -->
+		<xs:simpleType name="tipoNRP">
+			<xs:restriction base="xs:string">
+				<xs:pattern value="\d{3,4}[A-E]\d{3}"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:schema>
 
 
+..
+
+
+SOLUCIÓN B
+==========
+
+.. code-block:: xsd
+
+	<?xml version="1.0" encoding="UTF-8"?>
+	<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	
+	<!-- Grupo de atributos para o nome e os apelidos. E utilizado polos elementos profesor e alumno. -->
+		<xs:attributeGroup name="grupoNome">
+			<xs:attribute name="nome" type="tipoNome" use="required"/>
+			<xs:attribute name="apelido1" type="tipoNome" use="required"/>
+			<xs:attribute name="apelido2" type="tipoNome"/>
+		</xs:attributeGroup>
+		
+		<!-- Os nomes e apelidos deben ter como moito 50 caracteres, o primeiro deles en maiúscula, 
+	  validando que os caracteres permitidos sexan letras, permitindo os nomes e apelidos compostos( \s 
+	  representa un caracter en branco, tabulador ou salto de liña) e que inclúan acentos e a letra ñ. 
+	  + indica que o caracter que o precede debe aparecer polo menosunha vez (1 ou mais veces).
+	  Ademáis no caso de meter máis dun espazo en branco deberá convertilos nun espazo simple, 
+	  eliminando os espazos iniciais e finais. -->
+		<xs:simpleType name="tipoNome">
+			<xs:restriction base="xs:string">
+				  <xs:maxLength value="50"/>
+				  <xs:pattern value="[A-ZÁÉÍÓÚÑ]([\sA-Za-záéíóúñ])+"/>
+				  <xs:whiteSpace value="collapse"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:schema>
+
+..
 
 
