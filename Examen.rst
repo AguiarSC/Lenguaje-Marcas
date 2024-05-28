@@ -41,7 +41,7 @@ b) Realiza un documento DTD, reservas.dtd, que valide el XML creado. (2,5 puntos
 PRIMER EJERCICIO. APARTADO A
 ----------------------------
 
-.. code-block:: xml "reservas.dtd"
+.. code-block:: xml
 
     <?xml version="1.0" encoding="UTF-8" standalone="no"?>
     <!DOCTYPE reservas SYSTEM "reservas.dtd"> 
