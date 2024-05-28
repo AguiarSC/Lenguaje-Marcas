@@ -72,7 +72,7 @@ Se deben tener en cuenta las siguientes caracteristicas:
 	
 ..
 
-Solucion
+Solución
 --------
 
 .. code-block:: xml
@@ -251,7 +251,7 @@ Se deben tener en cuenta las siguientes caracteristicas:
 
 ..
 
-Solucion 
+Solución 
 --------
 
 .. code-block:: xml
@@ -347,7 +347,7 @@ Creación de documentos XML e esquemas XML completos. Neste exemplo imos crear e
 
 • O valor debe ser un número con dous decimais
 
-Solición
+Solución
 ----------
 .. code-block:: xml
 
