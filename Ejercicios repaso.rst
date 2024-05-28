@@ -18,7 +18,7 @@ Se deben tener en cuenta las siguientes características:
 
 .. code-block:: xml
 	
-	<?xml version="1.1" encoding="UTF-8"?>
+	<?xml version="1.0" encoding="UTF-8"?>
 	<factura n_fac="f999">
 	  <datos_empresa>
 	    <nombre>Equipos Digitales S.L.</nombre>
@@ -77,7 +77,7 @@ Solución
 
 .. code-block:: xml
 
-	<?xml version="1.1" encoding="UTF-8"?>
+	<?xml version="1.0" encoding="UTF-8"?>
 	<!DOCTYPE factura SYSTEM "Factura.dtd">
 	<factura n_fac="f999"> 
 	  <datos_empresa> 
@@ -254,7 +254,7 @@ Solución
 
 .. code-block:: xml
 
-	<?xml version="1.1" encoding="UTF-8"?>
+	<?xml version="1.0" encoding="UTF-8"?>
 	<!DOCTYPE cartelera SYSTEM "Cartelera.dtd">
 	<cartelera>
 		<película código="p1" duración="152" año="2002">
