@@ -126,3 +126,41 @@ reservas.xml
     </reservas>
 
 ..
+
+
+Apartado A
+----------
+
+.. code-block:: xml
+
+  <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+  <reservas xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  	xsi:noNamespaceSchemaLocation="reservas2a.xsd">
+  	<reserva cliente="C53454123X" tipoHabitacion="AD" habitacion="Doble">
+  		<fechaInicio año="2022" mes="Marzo" dia="18"></fechaInicio>
+  		<fechaFin año="2022" mes="Marzo" dia="20"></fechaFin>
+  		<observaciones>LLegan tarde, sobre las 23:30</observaciones>
+  	</reserva>
+  	<reserva cliente="C53454123X" tipoHabitacion="MP" habitacion="Individual">
+  		<fechaInicio año="2021" mes="Mayo" dia="16"></fechaInicio>
+  		<fechaFin año="2021" mes="Mayo" dia="17"></fechaFin>
+  		<observaciones>Salida a las 17:45</observaciones>
+  	</reserva>
+  	<reserva cliente="C44545123A" tipoHabitacion="PC" habitacion="Doble">
+  		<fechaInicio año="2022" mes="Abril" dia="14" />
+  		<fechaFin año="2022" mes="Abril" dia="18" />
+  	</reserva>
+  	<cliente id="C53454123X">
+  		<nombre>Clara</nombre>
+  		<apellidos>Lago Grau</apellidos>
+  		<movil>655656777</movil>
+  		<correo>clarita@email.com</correo>
+  	</cliente>
+  	<cliente id="C44545123A">
+  		<nombre>Fernando</nombre>
+  		<apellidos>Simón Soria</apellidos>
+  		<movil>785567811</movil>
+  	</cliente>
+  </reservas>
+
+..
