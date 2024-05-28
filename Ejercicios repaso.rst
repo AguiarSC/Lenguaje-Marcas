@@ -191,7 +191,7 @@ Se deben tener en cuenta las siguientes características:
 
 
 .. code-block:: xml
-
+	<?xml version="1.0" encoding="UTF-8"?>
 	<cartelera>
 	  <película código="p1" duración="152" año="2002">
 	    <título>AQUELLAS JUERGAS UNIVERSITARIAS</título>
