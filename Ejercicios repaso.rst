@@ -472,16 +472,104 @@ ENUNCIADO
 	    </dataConstrucion>
 	</edificio>
 
-
 ..
 
 
+SOLUCIÓN
+========
 
+.. code-block: xsd
 
+	<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+	<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	
+	    <xs:element name="edificio">
+	        <xs:complexType>
+	            <xs:sequence>
+	                <xs:element ref="enderezo"/>
+	                <xs:element ref="dataConstrucion"/>
+	                <xs:element ref="material" minOccurs="0"/>
+	            </xs:sequence>
+	            <xs:attribute name="valor" type="tipoValor"/>
+	            <!--O alquiler é verdadeiro ou falso, e é obrigatorio.-->
+	            <xs:attribute name="alquiler" use="required">
+	                <xs:simpleType>
+	                    <xs:restriction base="xs:NMTOKEN">
+	                        <xs:enumeration value="verdadeiro"/>
+	                        <xs:enumeration value="falso"/>
+	                    </xs:restriction>
+	                </xs:simpleType>
+	            </xs:attribute>
+	        </xs:complexType>
+	    </xs:element>
+	
+	    <xs:element name="enderezo" type="enderezo"/>
+	    <xs:element name="dataConstrucion" type="tipoDataConstrucion"/>
+	    <xs:element name="material" type="xs:string"/>
+	
+	    <xs:complexType name="enderezo">
+	        <xs:sequence>
+	            <xs:element ref="rua"/>
+	            <xs:element ref="numero"/>
+	            <xs:element ref="poboacion"/>
+	            <xs:element ref="provincia"/>
+	            <xs:element ref="codigoPostal"/>
+	        </xs:sequence>
+	    </xs:complexType>
+	
+	    <xs:element name="rua" type="xs:string"/>
+	    <xs:element name="numero" type="tipoNumero"/>
+	    <xs:element name="poboacion" type="xs:string"/>
+	    <xs:element name="provincia" type="xs:string"/>
+	    <xs:element name="codigoPostal" type="tipoCodigoPostal"/>
+	
+	    <!--O código postal consta unicamente de 5 díxitos.-->
+	    <xs:simpleType name="tipoCodigoPostal">
+	        <xs:restriction base="xs:string">
+	            <xs:pattern value="\d{5}"/>
+	        </xs:restriction>
+	    </xs:simpleType>
+	
+	    <!--O valor debe ser un número con dous decimais.-->
+	    <xs:simpleType name="tipoValor">
+	        <xs:restriction base="xs:decimal">
+	            <xs:fractionDigits value="2"/>
+	        </xs:restriction>
+	    </xs:simpleType>
+	
+	    <!--O número de rúa debe ser un número positivo que non superará o 2000.-->
+	    <xs:simpleType name="tipoNumero">
+	        <xs:restriction base="xs:unsignedShort">
+	            <xs:maxInclusive value="2000"/>
+	        </xs:restriction>
+	    </xs:simpleType>
+	
+	    <xs:complexType name="tipoDataConstrucion">
+	        <xs:attribute name="mes" type="tipoMes" use="required"/>
+	        <xs:attribute name="ano" type="xs:gYear" use="required"/><!--ano con 4 dígitos-->
+	    </xs:complexType>
+	
+	    <!--Valida que os meses do ano teñan un valor correcto.-->
+	    <xs:simpleType name="tipoMes">
+	        <xs:restriction base="xs:string">
+	            <xs:enumeration value="Xaneiro"/>
+	            <xs:enumeration value="Febreiro"/>
+	            <xs:enumeration value="Marzo"/>
+	            <xs:enumeration value="Abril"/>
+	            <xs:enumeration value="Maio"/>
+	            <xs:enumeration value="Xuño"/>
+	            <xs:enumeration value="Xullo"/>
+	            <xs:enumeration value="Agosto"/>
+	            <xs:enumeration value="Setembro"/>
+	            <xs:enumeration value="Outubro"/>
+	            <xs:enumeration value="Novembro"/>
+	            <xs:enumeration value="Decembro"/>
+	        </xs:restriction>
+	    </xs:simpleType>
+	
+	</xs:schema>
 
-
-
-
+..
 
 
 
