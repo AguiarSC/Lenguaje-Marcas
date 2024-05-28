@@ -221,7 +221,31 @@ SOLUCIÓN DTD EXTERNO
 ..
 
 
+EJERCICIO 2
+-----------
 
+ENUNCIADO
+=========
+
+::
+
+	Definir una DTD que valide el documento XML que se muestra a continuación. Construir un documento XML con DTD interna y otro 
+	Definir una DTD que valide el documento XML que se muestra a continuación. Construir un documento XML con DTD interna y otro 
+	con DTD externa. Comprobar la buena formación y la validez del documento en ambos casos. Se deben tener en cuenta las 
+	siguientes características:
+
+	- El título original de una película solo aparecerá cuando la película no sea española.
+
+	- Es posible que en un momento dado una película esté pendiente de clasificación. En caso de que esté clasificada siempre 
+	deberá indicar los años para los que se recomienda: tp (todos los públicos), 8, 12, 16 o 18.
+
+	- No siempre existe una web con la información de la película.
+
+	- Se quiere guardar información sobre el fichero gráfico que contiene el cartel de película. Fichero no siempre disponible.
+
+	- En caso de que no se proporcione el año de una película se asumirá que es el 2003.
+
+	- En el reparto deberá aparecer un actor como mínimo.
 
 
 
