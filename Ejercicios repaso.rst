@@ -760,116 +760,75 @@ ENUNCIADO
 ..
 
 
-SOLUCIÓN A
-==========
+SOLUCIÓN
+========
 
 .. code-block:: xsd
-
-	<?xml version="1.0" encoding="UTF-8"?>
+	<!-- Esquema para el grupo de atributos (nombres y apellidos) -->
+	<!-- nombres.xsd -->
 	<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-	<xs:include schemaLocation="alumno_2.xsd"/>
-	<xs:annotation>
-	    <xs:documentation>
-	       Definicións comúns para validar o seguinte:
-	       * Nomes que so poden ter letras (inluíndo acentos e ñ) e espazos en branco.
-	       * A altura, que pode tomar os valores Alto, Baixo ou a altura en cm (valida que non sexa menor que 20)
-	    </xs:documentation>
-	</xs:annotation>
 	
-	<!--Para os alumnos debemos gardar a súa altura. A altura dun alumno pode tomar os valores Alto, Baixo 
-	ou un número positivo maior que 20 que gardará a altura en cm-->
-	<xs:simpleType name="tipoAltura">
-	    <xs:union>
-	        <xs:simpleType>
-		   	    	<xs:restriction base="xs:string">
-				        	<xs:enumeration value="Alto"/>
-				        	<xs:enumeration value="Baixo"/>
-		       		</xs:restriction>
-		    	</xs:simpleType>
-			    <xs:simpleType>
-		   	    	<xs:restriction base="xs:unsignedByte">
-					        <xs:minInclusive value="20"/>
-		   		    </xs:restriction>
-			    </xs:simpleType>
-		  </xs:union>
-	</xs:simpleType>
+	  <!-- Definición del grupo de atributos para nombres y apellidos -->
+	  <xs:attributeGroup name="nombreCompleto">
+	    <xs:attribute name="nome" type="xs:string"/>
+	    <xs:attribute name="apelido1" type="xs:string"/>
+	    <xs:attribute name="apelido2" type="xs:string"/>
+	  </xs:attributeGroup>
 	
-		<xs:element name="instituto">
-			<xs:complexType>
-				<xs:choice maxOccurs="unbounded">
-					  <xs:element ref="alumno"/>
-					  <xs:element ref="profesor"/>
-				</xs:choice>
-			</xs:complexType>
-		</xs:element>
-		
-		<xs:element name="alumno">
-			<xs:complexType>
-			   	<xs:sequence>
-				      <xs:element name="altura" type="tipoAltura" minOccurs="0"/>
-			   	</xs:sequence>
-			  	<xs:attribute name="numExpedente" type="tipoNumExpedente"
-	          use="required"/>
-				  <xs:attributeGroup ref="grupoNome"/>
-			</xs:complexType>
-		</xs:element>
-		
-		<xs:element name="profesor">
-			<xs:complexType>
-				  <xs:attribute name="NRP" type="tipoNRP" use="required"/>
-				  <xs:attributeGroup ref="grupoNome"/>
-			</xs:complexType>
-		</xs:element>
-	
-	<!-- O número de expedente debe constar de 3 ou 4 díxitos. -->
-		<xs:simpleType name="tipoNumExpedente">
-			<xs:restriction base="xs:string">
-				<xs:pattern value="\d{3,4}"/>
-			</xs:restriction>
-		</xs:simpleType>
-		
-		<!--O NRP debe comezar por 3 ou 4 díxitos, seguidos dunha letra entre a A e a E, 
-	  e a continuación outros 3 díxitos. -->
-		<xs:simpleType name="tipoNRP">
-			<xs:restriction base="xs:string">
-				<xs:pattern value="\d{3,4}[A-E]\d{3}"/>
-			</xs:restriction>
-		</xs:simpleType>
 	</xs:schema>
-
 
 ..
 
 
-SOLUCIÓN B
-==========
 
 .. code-block:: xsd
 
-	<?xml version="1.0" encoding="UTF-8"?>
+  	<!-- Esquema principal -->
+	<!-- instituto.xsd -->
 	<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 	
-	<!-- Grupo de atributos para o nome e os apelidos. E utilizado polos elementos profesor e alumno. -->
-		<xs:attributeGroup name="grupoNome">
-			<xs:attribute name="nome" type="tipoNome" use="required"/>
-			<xs:attribute name="apelido1" type="tipoNome" use="required"/>
-			<xs:attribute name="apelido2" type="tipoNome"/>
-		</xs:attributeGroup>
-		
-		<!-- Os nomes e apelidos deben ter como moito 50 caracteres, o primeiro deles en maiúscula, 
-	  validando que os caracteres permitidos sexan letras, permitindo os nomes e apelidos compostos( \s 
-	  representa un caracter en branco, tabulador ou salto de liña) e que inclúan acentos e a letra ñ. 
-	  + indica que o caracter que o precede debe aparecer polo menosunha vez (1 ou mais veces).
-	  Ademáis no caso de meter máis dun espazo en branco deberá convertilos nun espazo simple, 
-	  eliminando os espazos iniciais e finais. -->
-		<xs:simpleType name="tipoNome">
-			<xs:restriction base="xs:string">
-				  <xs:maxLength value="50"/>
-				  <xs:pattern value="[A-ZÁÉÍÓÚÑ]([\sA-Za-záéíóúñ])+"/>
-				  <xs:whiteSpace value="collapse"/>
-			</xs:restriction>
-		</xs:simpleType>
+	  <!-- Importar el esquema para nombres y apellidos -->
+	  <xs:import schemaLocation="nombres.xsd"/>
+	
+	  <!-- Elemento raíz -->
+	  <xs:element name="instituto">
+	    <xs:complexType>
+	      <xs:sequence>
+	        <!-- Definición de alumnos -->
+	        <xs:element name="alumno" maxOccurs="unbounded">
+	          <xs:complexType>
+	            <xs:sequence>
+	              <!-- Incluir el grupo de atributos para nombres y apellidos -->
+	              <xs:attributeGroup ref="nombreCompleto"/>
+	              <!-- Altura del alumno -->
+	              <xs:element name="altura">
+	                <xs:simpleType>
+	                  <!-- Definir restricciones para la altura -->
+	                  <xs:restriction base="xs:string">
+	                    <xs:pattern value="Alto|Baixo|[2-9][0-9]+"/>
+	                  </xs:restriction>
+	                </xs:simpleType>
+	              </xs:element>
+	            </xs:sequence>
+	            <!-- Atributo para el número de expediente -->
+	            <xs:attribute name="numExpediente" type="xs:string"/>
+	          </xs:complexType>
+	        </xs:element>
+	        <!-- Definición de profesores -->
+	        <xs:element name="profesor" maxOccurs="unbounded">
+	          <xs:complexType>
+	            <!-- Incluir el grupo de atributos para nombres y apellidos -->
+	            <xs:attributeGroup ref="nombreCompleto"/>
+	            <!-- Atributo para el número de registro personal -->
+	            <xs:attribute name="NRP" type="xs:string"/>
+	          </xs:complexType>
+	        </xs:element>
+	      </xs:sequence>
+	    </xs:complexType>
+	  </xs:element>
+	
 	</xs:schema>
+
 
 ..
 
