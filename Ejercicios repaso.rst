@@ -1,7 +1,7 @@
-Enunciado
--------------
+Ejercicio 1
+-----------
 
-1. Definir una DTD que valide el documento XML que se muestra a continuación.
+Definir una DTD que valide el documento XML que se muestra a continuación.
 Construir un documento XML con DTD interna y otro con DTD externa. Comprobar la buena formación y la validez del documento en ambos casos.
 Se deben tener en cuenta las siguientes características:
 
@@ -14,6 +14,7 @@ Se deben tener en cuenta las siguientes características:
 • La moneda tiene que aparecer siempre, y siempre toma al valor “euro”.
 
 • El iva tiene que aparecer siempre, y su valor no puede contener caracteres especiales.
+
 
 .. code-block:: xml
 	
@@ -71,8 +72,8 @@ Se deben tener en cuenta las siguientes características:
 	
 ..
 
-Solucion1
------------
+Solución
+--------
 
 .. code-block:: xml
 
@@ -168,7 +169,12 @@ Solucion1
  <!ATTLIST poblacion cod_postal CDATA "">
 
 ..
-2. Definir una DTD que valide el documento XML que se muestra a continuación. Construir un documento XML con DTD interna y otro con DTD externa. Comprobar la buena formación y la validez del documento en ambos casos.
+
+
+Ejercicio 2
+-----------
+
+Definir una DTD que valide el documento XML que se muestra a continuación. Construir un documento XML con DTD interna y otro con DTD externa. Comprobar la buena formación y la validez del documento en ambos casos.
 Se deben tener en cuenta las siguientes características:
 
 • El título original de una película solo aparecerá cuando la película no sea española.
@@ -182,6 +188,7 @@ Se deben tener en cuenta las siguientes características:
 • En caso de que no se proporcione el año de una película se asumirá que es el 2003.
 
 • En el reparto deberá aparecer un actor como mínimo.
+
 
 .. code-block:: xml
 
@@ -242,8 +249,8 @@ Se deben tener en cuenta las siguientes características:
 
 ..
 
-Solucion2
-----------
+Solución 
+--------
 
 .. code-block:: xml
 
