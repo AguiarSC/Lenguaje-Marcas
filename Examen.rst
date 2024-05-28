@@ -1,39 +1,38 @@
 ENUNCIADO
 ---------
 
-El Hotel Noa, precisa disponer de informacion para sus reservas de habitaciones, por lo que
-decidieron generar un documento XML con la informacion de las mismas, asi como documentos de
-validacion. Aunque el tecnico informatico ha pensado en generarlo dinamicamente a partir de la
-informacion almacenada en una base de datos, necesitan preparar un documento XML y un DTD
-asociado que sirva como plantilla.
+El Hotel Noa, precisa disponer de informacion para sus reservas de habitaciones, por lo que decidieron generar un documento XML con la informacion de las mismas, asi como documentos de validacion. Aunque el tecnico informatico ha pensado en generarlo dinamicamente a partir de la informacion almacenada en una base de datos, necesitan preparar un documento XML y un DTD asociado que sirva como plantilla.
 
 Caracteristicas:
-- Un ``elemento raiz`` llamado ``reservas.
 
-- ``Todos los atributos`` del XML seran ``obligatorios``.
+- Un elemento raiz llamado reservas.
 
-- Las ``reservas`` tienen un ``numero variable de reservas y clientes``. ``Puede no haber``.
+- Todos los atributos del XML seran obligatorios.
+
+- Las reservas tienen un numero variable de reservas y clientes. Puede no haber.
 
 - Cada reserva tiene:
-  o ``Atributos``, ``todos obligatorios``: ``codigo de cliente`` (cliente), formado por la letra C
-    seguida del DNI (8 numeros y una letra mayuscula), por ejemplo C53454123X;
-    ``tipoHabitacion``, que podra tener los valores: SA, AD, MP o PC, que indican solo
-    alojamiento, alojamiento y desayuno, media pension y pension completa; ``tipo de
-    habitacion`` (habitacion), que puede tener los valores, Doble o Individual.
-  o ``Fecha de Inicio`` (fechaInicio), con atributos dia, mes y ano, obligatorios. Los tres
-    deben ser atributos. El atributo mes solo puede tomar los valores de los nombres de los
-    meses del ano.
-  o ``Fecha de fin`` (fechaFin), con atributos dia, mes y ano, obligatorios. Igual a la anterior.
-  o ``Observaciones`` (observaciones), una parrafada, opcional para cada reserva y solo puede
+
+  o Atributos, todos obligatorios: codigo de cliente (cliente), formado por la letra C seguida del DNI (8 numeros y una letra mayuscula), por ejemplo C53454123X; tipoHabitacion, que podra tener los valores: SA, AD, MP o PC, que indican solo alojamiento, alojamiento y desayuno, media pension y pension completa; tipo de habitacion (habitacion), que puede tener los valores, Doble o Individual.
+
+  o Fecha de Inicio (fechaInicio), con atributos dia, mes y ano, obligatorios. Los tres deben ser atributos. El atributo mes solo puede tomar los valores de los nombres de los meses del ano.
+
+  o Fecha de fin (fechaFin), con atributos dia, mes y ano, obligatorios. Igual a la anterior.
+
+  o Observaciones (observaciones), una parrafada, opcional para cada reserva y solo puede
     haber una.
 
-- ``Cada cliente`` tiene un ``atributo codigo de cliente (id)`` que debe estar relacionado con la reserva
-  (cliente), y ademas consta de:
-  o ``Nombre`` (nombre). Obligatorio.
-  o ``Apellidos`` (apellidos). Obligatorio.
-  o ``Telefono movil`` (movil). Obligatorio, puede haber varios.
-  o ``Correo`` (email). Opcional, puede haber varios.
-- Emplea ``entidades`` donde lo consideres oportuno, nombres de los meses, por ejemplo.
+- Cada cliente tiene un atributo codigo de cliente (id) que debe estar relacionado con la reserva (cliente), y ademas consta de:
+
+  o Nombre (nombre). Obligatorio.
+
+  o Apellidos (apellidos). Obligatorio.
+
+  o Telefono movil (movil). Obligatorio, puede haber varios.
+
+  o Correo (email). Opcional, puede haber varios.
+
+- Emplea entidades donde lo consideres oportuno, nombres de los meses, por ejemplo.
 
 a) Modifica el documento XML, reservas.xml, para que se ajuste a las caracteristicas anteriores.(0,25 puntos)
 b) Realiza un documento DTD, reservas.dtd, que valide el XML creado. (2,5 puntos)
