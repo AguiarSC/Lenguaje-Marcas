@@ -284,3 +284,175 @@ SEGUNDO EJERCICIO. APARTADO A
   </xs:schema>
 
 ..
+
+
+SEGUNDO EJERCICIO. APARTADO B
+-----------------------------
+
+.. code-block:: xml
+
+  <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+  <reservas xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  	xsi:noNamespaceSchemaLocation="reservas2b.xsd">
+  	<reserva cliente="C53454123X" tipoHabitacion="AD" habitacion="Doble">
+  		<fechaInicio año="2022" mes="Marzo" dia="18"></fechaInicio>
+  		<fechaFin año="2022" mes="Marzo" dia="20"></fechaFin>
+  		<observaciones>LLegan tarde, sobre las 23:30</observaciones>
+  	</reserva>
+  	<reserva cliente="C53454123X" tipoHabitacion="MP" habitacion="Individual">
+  		<fechaInicio año="2021" mes="Mayo" dia="16"></fechaInicio>
+  		<fechaFin año="2021" mes="Mayo" dia="17"></fechaFin>
+  		<observaciones>Salida a las 17:45</observaciones>
+  	</reserva>
+  	<reserva cliente="C44545123A" tipoHabitacion="PC" habitacion="Doble">
+  		<fechaInicio año="2022" mes="Abril" dia="14" />
+  		<fechaFin año="2022" mes="Abril" dia="18" />
+  	</reserva>
+  	<cliente id="C53454123X">
+  		<nombre>Clara</nombre>
+  		<apellidos>Lago Grau</apellidos>
+  		<movil>655656777</movil>
+  		<correo>clarita@email.com</correo>
+  	</cliente>
+  	<cliente id="C44545123A">
+  		<nombre>Fernando</nombre>
+  		<apellidos>Simón Soria</apellidos>
+  		<movil>785567811</movil>
+  	</cliente>
+  	<cliente id="C37545123A">
+  		<empleado>NB567890</empleado>
+  	</cliente>
+  </reservas>
+
+..
+
+
+.. code-block: xsd
+
+  <?xml version="1.0" encoding="UTF-8"?>
+  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  
+  	<!-- TIPO DE DATO complejo para guardar fechas:  tipoFecha -->
+  	<!-- Define un tipo de dato, llamado "tipoFecha" para reutilizar 
+  	y emplear en el elemento fechaInicio y fechaFin -->
+  	<xs:complexType name="tipoFecha">
+  		<xs:attribute name="año" type="xs:gYear" use="required" />
+  		<xs:attribute name="mes" use="required">
+  			<xs:simpleType>
+  				<xs:restriction base="xs:string">
+  					<xs:enumeration value="Enero" />
+  					<xs:enumeration value="Febrero" />
+  					<xs:enumeration value="Marzo" />
+  					<xs:enumeration value="Abril" />
+  					<xs:enumeration value="Mayo" />
+  					<xs:enumeration value="Junio" />
+  					<xs:enumeration value="Julio" />
+  					<xs:enumeration value="Agosto" />
+  					<xs:enumeration value="Septiembre" />
+  					<xs:enumeration value="Octubre" />
+  					<xs:enumeration value="Noviembre" />
+  					<xs:enumeration value="Diciembre" />
+  				</xs:restriction>
+  			</xs:simpleType>
+  		</xs:attribute>
+  		<xs:attribute name="dia" type="xs:unsignedByte" use="required" />
+  	</xs:complexType>
+  
+  	<!-- TIPO DE DATO simple para identificador cliente:  tipoIdCliente -->
+  	<!-- Define un tipo de dato simple, llamado "tipoIdCliente" para reutilizar 
+  	en los atributos cliente e id y definir el patrón.-->
+  	<xs:simpleType name="tipoIdCliente">
+  		<xs:restriction base="xs:string">
+  			<xs:pattern value="[C]\d{8}[A-Z]" />
+  		</xs:restriction>
+  	</xs:simpleType>
+  
+  	<!-- TIPO DE DATO simple para identificador empleado:  tipoEmpleado-->
+  	<!-- Define un tipo de dato simple, llamado "tipoIdCliente" para reutilizar 
+  	en los atributos cliente e id y definir el patrón.-->
+  	<xs:simpleType name="tipoEmpleado">
+  		<xs:restriction base="xs:string">
+  			<xs:pattern value="[A-Z]{2}\d{6}" />
+  		</xs:restriction>
+  	</xs:simpleType>
+  
+  	<!-- Define ATRIBUTO "tipoHabitación" restringir valores 
+  	"AD", "MP", "PC" y "SA"  -->
+  	<xs:attribute name="tipoHabitacion">
+  		<xs:simpleType>
+  			<xs:restriction base="xs:string">
+  				<xs:enumeration value="AD" />
+  				<xs:enumeration value="MP" />
+  				<xs:enumeration value="PC" />
+  				<xs:enumeration value="SA" />
+  			</xs:restriction>
+  		</xs:simpleType>
+  	</xs:attribute>
+  
+  	<!-- Define ATRIBUTO "habitación" restringir valores 
+  	"Doble", "Individual"  -->
+  	<xs:attribute name="habitacion">
+  		<xs:simpleType>
+  			<xs:restriction base="xs:string">
+  				<xs:enumeration value="Doble" />
+  				<xs:enumeration value="Individual" />
+  			</xs:restriction>
+  		</xs:simpleType>
+  	</xs:attribute>
+  
+  	<!-- ELEMENTOS PRINCIPAIS -->
+  
+  	<!-- reservas -->
+  	<xs:element name="reservas">
+  		<xs:complexType>
+  			<xs:sequence>
+  				<xs:element ref="reserva" minOccurs="0" maxOccurs="unbounded" />
+  				<xs:element ref="cliente" minOccurs="0" maxOccurs="unbounded" />
+  			</xs:sequence>
+  		</xs:complexType>
+  		<!--  Define las REFERENCIAS ENTRE las claves del CLIENTE y RESERVA -->
+  		<xs:key name="clienteKey">
+  			<xs:selector xpath="cliente" />
+  			<xs:field xpath="@id" />
+  		</xs:key>
+  		<!-- keyref especifica que el valor del atributo cliente del elemento reserva 
+  			corresponde al atributo id del elemento cliente -->
+  		<xs:keyref name="reserva" refer="clienteKey">
+  			<xs:selector xpath="reserva" />
+  			<xs:field xpath="@cliente" />
+  		</xs:keyref>
+  	</xs:element>
+  
+  	<!-- reserva -->
+  	<xs:element name="reserva">
+  		<xs:complexType>
+  			<xs:sequence>
+  				<xs:element name="fechaInicio" type="tipoFecha" />
+  				<xs:element name="fechaFin" type="tipoFecha" />
+  				<xs:element name="observaciones" type="xs:string" minOccurs="0" />
+  			</xs:sequence>
+  			<xs:attribute name="cliente" type="tipoIdCliente" use="required" />
+  			<xs:attribute ref="tipoHabitacion" use="required" />
+  			<xs:attribute ref="habitacion" use="required" />
+  		</xs:complexType>
+  	</xs:element>
+  
+  	<!-- cliente -->
+  	<xs:element name="cliente">
+  		<xs:complexType>
+  			<xs:choice>
+  				<xs:sequence>
+  					<xs:element name="nombre" type="xs:string" />
+  					<xs:element name="apellidos" type="xs:string" />
+  					<xs:element name="movil" type="xs:int" minOccurs="0" maxOccurs="unbounded" />
+  					<xs:element name="correo" type="xs:string" minOccurs="0" />
+  				</xs:sequence>
+  				<xs:element name="empleado" type="tipoEmpleado" />
+  			</xs:choice>
+  			<xs:attribute name="id" type="tipoIdCliente" use="required" />
+  		</xs:complexType>
+  	</xs:element>
+  
+  </xs:schema>
+
+.. 
