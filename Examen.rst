@@ -90,7 +90,11 @@ reservas.dtd
 
 ..
 
-<!-- reservas.xml -->
+reservas.xml
+------------
+
+.. code-block:: xml
+
     <?xml version="1.0" encoding="UTF-8" standalone="no"?>
     <!DOCTYPE reservas SYSTEM "reservas.dtd"> 
     <reservas>
@@ -120,3 +124,5 @@ reservas.dtd
             <movil>785567811</movil>
         </cliente>
     </reservas>
+
+..
