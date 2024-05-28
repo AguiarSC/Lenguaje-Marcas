@@ -316,8 +316,7 @@ SOLUCIÓN DTD INTERNO
 	<!DOCTYPE cartelera [
 	    <!-- DEFINICIÓN DE ELEMENTOS -->
 	    <!ELEMENT cartelera (película)*>
-	    <!ELEMENT película (título, título_original?, nacionalidad, género, (clasificación | sin_clasificar), sinopsis, director,
-		reparto, web?, cartel?) >
+	    <!ELEMENT película (título, título_original?, nacionalidad, género, (clasificación | sin_clasificar), sinopsis, director, reparto, web?, cartel?) >
 	    <!ELEMENT título (#PCDATA)>
 	    <!ELEMENT título_original (#PCDATA)>
 	    <!ELEMENT nacionalidad (#PCDATA)>
@@ -409,8 +408,7 @@ SOLUCIÓN DTD EXTERNO
 
 	<!-- DEFINICIÓN DE ELEMENTOS -->
 	 <!ELEMENT cartelera (película)*>
-	 <!ELEMENT película (título, título_original?, nacionalidad, género, (clasificación | sin_clasificar), sinopsis, director,
-		reparto, web?, cartel?) >
+	 <!ELEMENT película (título, título_original?, nacionalidad, género, (clasificación | sin_clasificar), sinopsis, director, reparto, web?, cartel?) >
 	 <!ELEMENT título (#PCDATA)>
 	 <!ELEMENT título_original (#PCDATA)>
 	 <!ELEMENT nacionalidad (#PCDATA)>
