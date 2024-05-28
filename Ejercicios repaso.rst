@@ -1,13 +1,13 @@
 Ejercicio 1
 -----------
 
-Definir una DTD que valide el documento XML que se muestra a continuación.
-Construir un documento XML con DTD interna y otro con DTD externa. Comprobar la buena formación y la validez del documento en ambos casos.
-Se deben tener en cuenta las siguientes características:
+Definir una DTD que valide el documento XML que se muestra a continuacion.
+Construir un documento XML con DTD interna y otro con DTD externa. Comprobar la buena formacion y la validez del documento en ambos casos.
+Se deben tener en cuenta las siguientes caracteristicas:
 
-• El número de factura (n_fac), número de cliente (n_cli) y número de pedido (n_ped) son valores únicos, por cada factura, cliente y pedido distintos, y son obligatorios.
+• El numero de factura (n_fac), numero de cliente (n_cli) y numero de pedido (n_ped) son valores unicos, por cada factura, cliente y pedido distintos, y son obligatorios.
 
-• Los números de teléfono (telefono) y fax (fax) de la empresa no tienen porqué aparecer en la factura, pero siempre que lo hagan deberán tener los mismos valores (teléfono 917776688, fax 917776699).
+• Los numeros de telefono (telefono) y fax (fax) de la empresa no tienen porque aparecer en la factura, pero siempre que lo hagan deberan tener los mismos valores (telefono 917776688, fax 917776699).
 
 • La forma de pago puede tomar los valores “efectivo”, “tarjeta” y “plazos”.
 
@@ -29,7 +29,7 @@ Se deben tener en cuenta las siguientes características:
 	    <telefono/>
 	  </datos_empresa>
 	  <datos_cliente n_cli="c879">
-	    <nombre>Darío, Bueno Gutiérrez</nombre>
+	    <nombre>Dario, Bueno Gutierrez</nombre>
 	    <dir_env>Av. Oporto nº7 4ºd</dir_env>
 	    <poblacion cod_postal="28043">Madrid</poblacion>
 	    <provincia>Madrid</provincia>
@@ -72,7 +72,7 @@ Se deben tener en cuenta las siguientes características:
 	
 ..
 
-Solución
+Solucion
 --------
 
 .. code-block:: xml
@@ -89,7 +89,7 @@ Solución
 	    <telefono/> 
 	  </datos_empresa> 
 	  <datos_cliente n_cli="c879"> 
-	    <nombre>Darío, Bueno Gutiérrez</nombre> 
+	    <nombre>Dario, Bueno Gutierrez</nombre> 
 	    <dir_env>Av. Oporto nº7 4ºd</dir_env> 
 	    <poblacion cod_postal="28043">Madrid</poblacion> 
 	    <provincia>Madrid</provincia> 
@@ -157,7 +157,7 @@ Solución
  <!ELEMENT cuota_iva (#PCDATA)>
  <!ELEMENT total (#PCDATA)>
 
- <!-- Definición de atributos -->
+ <!-- Definicion de atributos -->
  <!ATTLIST factura n_fac ID #REQUIRED>
  <!ATTLIST telefono num_tel CDATA #FIXED "917776688">
  <!ATTLIST fax num_fax CDATA #FIXED "917776699">
@@ -174,20 +174,20 @@ Solución
 Ejercicio 2
 -----------
 
-Definir una DTD que valide el documento XML que se muestra a continuación. Construir un documento XML con DTD interna y otro con DTD externa. Comprobar la buena formación y la validez del documento en ambos casos.
-Se deben tener en cuenta las siguientes características:
+Definir una DTD que valide el documento XML que se muestra a continuacion. Construir un documento XML con DTD interna y otro con DTD externa. Comprobar la buena formacion y la validez del documento en ambos casos.
+Se deben tener en cuenta las siguientes caracteristicas:
 
-• El título original de una película solo aparecerá cuando la película no sea española.
+• El titulo original de una pelicula solo aparecera cuando la pelicula no sea espanola.
 
-• Es posible que en un momento dado una película esté pendiente de clasificación. En caso de que esté clasificada siempre deberá indicar los años para los que se recomienda: tp (todos los públicos), 8, 12, 16 o 18.
+• Es posible que en un momento dado una pelicula este pendiente de clasificacion. En caso de que este clasificada siempre debera indicar los anos para los que se recomienda: tp (todos los publicos), 8, 12, 16 o 18.
 
-• No siempre existe una web con la información de la película.
+• No siempre existe una web con la informacion de la pelicula.
 
-• Se quiere guardar información sobre el fichero gráfico que contiene el cartel de la película. Este fichero no siempre está disponible.
+• Se quiere guardar informacion sobre el fichero grafico que contiene el cartel de la pelicula. Este fichero no siempre esta disponible.
 
-• En caso de que no se proporcione el año de una película se asumirá que es el 2003.
+• En caso de que no se proporcione el ano de una pelicula se asumira que es el 2003.
 
-• En el reparto deberá aparecer un actor como mínimo.
+• En el reparto debera aparecer un actor como minimo.
 
 
 .. code-block:: xml
@@ -195,20 +195,20 @@ Se deben tener en cuenta las siguientes características:
 	<?xml version="1.0" encoding="UTF-8"?>
 	<!DOCTYPE cartelera SYSTEM "Cartelera.dtd">
 	<cartelera>
-	  <película código="p1" duración="152" año="2002">
-	    <título>AQUELLAS JUERGAS UNIVERSITARIAS</título>
-	    <título_original>Old School</título_original>
+	  <pelicula codigo="p1" duracion="152" ano="2002">
+	    <titulo>AQUELLAS JUERGAS UNIVERSITARIAS</titulo>
+	    <titulo_original>Old School</titulo_original>
 	    <nacionalidad>Estados Unidos</nacionalidad>
-	    <género>Comedia</género>
-	    <clasificación edad="tp"/>
+	    <genero>Comedia</genero>
+	    <clasificacion edad="tp"/>
 	    <sinopsis>
-	      Mitch, Frank y Beanie son tres amigos treintañeros cuyas vidas no son
+	      Mitch, Frank y Beanie son tres amigos treintaneros cuyas vidas no son
 	      exactamente lo que esperaban. Mitch tiene una novia un poco alocada.
 	      Frank se ha casado y su matrimonio nada tiene que ver con las juergas
-	      salvajes que organizaban años atrás. Y Beanie es un padre de familia que
+	      salvajes que organizaban anos atras. Y Beanie es un padre de familia que
 	      se muere por recuperar su alocada juventud. Pero las cosas cambian
 	      cuando Beanie sugiere que creen su propia fraternidad, en la nueva casa
-	      que Mitch tiene junto al campus de la universidad. Una ocasión para
+	      que Mitch tiene junto al campus de la universidad. Una ocasion para
 	      revivir tiempos gloriosos, hacer nuevos amigos y de volver a sus viejas,
 	      salvajes y desmadradas juergas de estudiantes.
 	    </sinopsis>
@@ -220,38 +220,38 @@ Se deben tener en cuenta las siguientes características:
 	    </reparto>
 	    <web>http://www.uip.es</web>
 	    <cartel>caratulas/Aquellas juergas.jpg</cartel>
-	  </película>
-	  <película código="p17" duración="06">
-	    <título>EL ORO DE MOSCÚ</título>
-	    <nacionalidad>España</nacionalidad>
-	    <género>Comedia</género>
+	  </pelicula>
+	  <pelicula codigo="p17" duracion="06">
+	    <titulo>EL ORO DE MOSCu</titulo>
+	    <nacionalidad>Espana</nacionalidad>
+	    <genero>Comedia</genero>
 	    <sin_clasificar/>
 	    <sinopsis>
-	      Por una extraña coincidencia del destino, alguien recibe una
-	      información extraconfidencial de un anciano en sus últimos
+	      Por una extrana coincidencia del destino, alguien recibe una
+	      informacion extraconfidencial de un anciano en sus ultimos
 	      segundos de vida: el secreto mejor guardado de la historia. El
 	      receptor, un trabajador de hospital, se lo comunica secretamente
 	      a un supuesto amigo. Ambos inician una aventura rocambolesca y
 	      llena de misterio. Ante la inutilidad de sus intentos y muy a
-	      su pesar, tienen que recurrir a otras personas que así mismo van
+	      su pesar, tienen que recurrir a otras personas que asi mismo van
 	      cayendo en el pozo sin fondo que conlleva descifrar el enigma.
 	    </sinopsis>
-	    <director>Jesús Bonilla</director>
+	    <director>Jesus Bonilla</director>
 	    <reparto>
-	      <actor>Jesús Bonilla</actor>
+	      <actor>Jesus Bonilla</actor>
 	      <actor>Santiago Segura</actor>
 	      <actor>Alfredo Landa</actor>
 	      <actor>Concha Velasco</actor>
 	      <actor>Antonio Resines</actor>
 	      <actor>Gabino Diego</actor>
-	      <actor>María Barranco</actor>
+	      <actor>Maria Barranco</actor>
 	    </reparto>
-	  </película>
+	  </pelicula>
 	</cartelera>
 
 ..
 
-Solución 
+Solucion 
 --------
 
 .. code-block:: xml
@@ -259,14 +259,14 @@ Solución
 	<?xml version="1.0" encoding="UTF-8"?>
 	<!DOCTYPE cartelera SYSTEM "Cartelera.dtd">
 	<cartelera>
-		<película código="p1" duración="152" año="2002">
-			<título>AQUELLAS JUERGAS UNIVERSITARIAS</título>
-			<título_original>Old School</título_original>
+		<pelicula codigo="p1" duracion="152" ano="2002">
+			<titulo>AQUELLAS JUERGAS UNIVERSITARIAS</titulo>
+			<titulo_original>Old School</titulo_original>
 			<nacionalidad>Estados Unidos</nacionalidad>
-			<género>Comedia</género>
-			<clasificación edad="tp"/>
+			<genero>Comedia</genero>
+			<clasificacion edad="tp"/>
 			<sinopsis>
-				Mitch, Frank y Beanie son tres amigos treintañeros cuyas vidas no son exactamente lo que esperaban. Mitch tiene una novia ninfómana que se 				mete en la cama con el primero que agarra. Frank se ha casado y su 				matrimonio nada tiene que ver con las juergas salvajes que organizaban 			años atrás. Y Beanie es un padre de familia que se muere por recuperar 				su alocada juventud. Pero las cosas cambian cuando Beanie sugiere que 				creen su propia fraternidad, en la nueva casa que Mitch tiene junto al 				campus de la universidad. Una ocasión para revivir tiempos gloriosos, 				hacer nuevos amigos y de volver a sus viejas, salvajes y desmadradas 				juergas de estudiantes.
+				Mitch, Frank y Beanie son tres amigos treintaneros cuyas vidas no son exactamente lo que esperaban. Mitch tiene una novia ninfomana que se 				mete en la cama con el primero que agarra. Frank se ha casado y su 				matrimonio nada tiene que ver con las juergas salvajes que organizaban 			anos atras. Y Beanie es un padre de familia que se muere por recuperar 				su alocada juventud. Pero las cosas cambian cuando Beanie sugiere que 				creen su propia fraternidad, en la nueva casa que Mitch tiene junto al 				campus de la universidad. Una ocasion para revivir tiempos gloriosos, 				hacer nuevos amigos y de volver a sus viejas, salvajes y desmadradas 				juergas de estudiantes.
 			</sinopsis>
 			<director>Todd Philips</director>
 			<reparto>
@@ -276,41 +276,41 @@ Solución
 			</reparto>
 			<web>http://www.uip.es</web>
 			<cartel>caratulas/Aquellas juergas.jpg</cartel>
-		</película>
-		<película código="p17" duración="06">
-			<título>EL ORO DE MOSCÚ</título>
-			<nacionalidad>España</nacionalidad>
-			<género>Comedia</género>
+		</pelicula>
+		<pelicula codigo="p17" duracion="06">
+			<titulo>EL ORO DE MOSCu</titulo>
+			<nacionalidad>Espana</nacionalidad>
+			<genero>Comedia</genero>
 			<sin_clasificar/>
 			<sinopsis>
-	Por una extraña coincidencia del destino, alguien recibe una información extraconfidencial de un anciano en sus últimos segundos de vida: el secreto mejor guardado de la Historia. El receptor, un trabajador de hospital, se lo comunica secretamente a un supuesto amigo. Ambos inician una aventura rocambolesca y llena de misterio. Ante la inutilidad de sus intentos y muy a
-	su pesar, tienen que recurrir a otras personas que así mismo van cayendo en el pozo sin fondo que conlleva descifrar el enigma.
+	Por una extrana coincidencia del destino, alguien recibe una informacion extraconfidencial de un anciano en sus ultimos segundos de vida: el secreto mejor guardado de la Historia. El receptor, un trabajador de hospital, se lo comunica secretamente a un supuesto amigo. Ambos inician una aventura rocambolesca y llena de misterio. Ante la inutilidad de sus intentos y muy a
+	su pesar, tienen que recurrir a otras personas que asi mismo van cayendo en el pozo sin fondo que conlleva descifrar el enigma.
 			</sinopsis>
-			<director>Jesús Bonilla</director>
+			<director>Jesus Bonilla</director>
 			<reparto>
-				<actor>Jesús Bonilla</actor>
+				<actor>Jesus Bonilla</actor>
 				<actor>Santiago Segura</actor>
 				<actor>Alfredo Landa</actor>
 				<actor>Concha Velasco</actor>
 				<actor>Antonio Resines</actor>
-				<actor>Gabino Diego, María Barranco</actor>
-				<actor>María Barranco</actor>
+				<actor>Gabino Diego, Maria Barranco</actor>
+				<actor>Maria Barranco</actor>
 			</reparto>
-		</película>
+		</pelicula>
 	</cartelera>
 
 ..
 
 .. code-block:: dtd
 
-	<!-- DEFINICIÓN DE ELEMENTOS -->
-	 <!ELEMENT cartelera (película)*>
-	 <!ELEMENT película (título, título_original?, nacionalidad, género, (clasificación | sin_clasificar), sinopsis, director, reparto, web?, cartel?) >
-	 <!ELEMENT título (#PCDATA)>
-	 <!ELEMENT título_original (#PCDATA)>
+	<!-- DEFINICIoN DE ELEMENTOS -->
+	 <!ELEMENT cartelera (pelicula)*>
+	 <!ELEMENT pelicula (titulo, titulo_original?, nacionalidad, genero, (clasificacion | sin_clasificar), sinopsis, director, reparto, web?, cartel?) >
+	 <!ELEMENT titulo (#PCDATA)>
+	 <!ELEMENT titulo_original (#PCDATA)>
 	 <!ELEMENT nacionalidad (#PCDATA)>
-	 <!ELEMENT género (#PCDATA)>
-	 <!ELEMENT clasificación EMPTY>
+	 <!ELEMENT genero (#PCDATA)>
+	 <!ELEMENT clasificacion EMPTY>
 	 <!ELEMENT sin_clasificar EMPTY>
 	 <!ELEMENT sinopsis (#PCDATA)>
 	 <!ELEMENT director (#PCDATA)>
@@ -319,10 +319,10 @@ Solución
 	 <!ELEMENT cartel (#PCDATA)>
 	 <!ELEMENT actor (#PCDATA)>
 	
-	 <!-- Definición de atributos -->
-	 <!ATTLIST película código ID #REQUIRED>
-	 <!ATTLIST película duración CDATA "">
-	 <!ATTLIST película año CDATA "2003">
-	 <!ATTLIST clasificación edad (8 | 12 | 16 | 18 | tp) #REQUIRED>
+	 <!-- Definicion de atributos -->
+	 <!ATTLIST pelicula codigo ID #REQUIRED>
+	 <!ATTLIST pelicula duracion CDATA "">
+	 <!ATTLIST pelicula ano CDATA "2003">
+	 <!ATTLIST clasificacion edad (8 | 12 | 16 | 18 | tp) #REQUIRED>
 
 ..
