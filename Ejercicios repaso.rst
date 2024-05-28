@@ -259,44 +259,43 @@ Solución
 	<?xml version="1.0" encoding="UTF-8"?>
 	<!DOCTYPE cartelera SYSTEM "Cartelera.dtd">
 	<cartelera>
-		<pelicula codigo="p1" duracion="152" ano="2002">
-			<titulo>AQUELLAS JUERGAS UNIVERSITARIAS</titulo>
-			<titulo_original>Old School</titulo_original>
-			<nacionalidad>Estados Unidos</nacionalidad>
-			<genero>Comedia</genero>
-			<clasificacion edad="tp"/>
-			<sinopsis>
-				Mitch, Frank y Beanie son tres amigos treintaneros cuyas vidas no son exactamente lo que esperaban. Mitch tiene una novia ninfomana que se 				mete en la cama con el primero que agarra. Frank se ha casado y su 				matrimonio nada tiene que ver con las juergas salvajes que organizaban 			anos atras. Y Beanie es un padre de familia que se muere por recuperar 				su alocada juventud. Pero las cosas cambian cuando Beanie sugiere que 				creen su propia fraternidad, en la nueva casa que Mitch tiene junto al 				campus de la universidad. Una ocasion para revivir tiempos gloriosos, 				hacer nuevos amigos y de volver a sus viejas, salvajes y desmadradas 				juergas de estudiantes.
-			</sinopsis>
-			<director>Todd Philips</director>
-			<reparto>
-				<actor>Luke Wilson</actor>
-				<actor>Will Farrel</actor>
-				<actor>Vince Vaughn</actor>
-			</reparto>
-			<web>http://www.uip.es</web>
-			<cartel>caratulas/Aquellas juergas.jpg</cartel>
-		</pelicula>
-		<pelicula codigo="p17" duracion="06">
-			<titulo>EL ORO DE MOSCu</titulo>
-			<nacionalidad>Espana</nacionalidad>
-			<genero>Comedia</genero>
-			<sin_clasificar/>
-			<sinopsis>
-	Por una extrana coincidencia del destino, alguien recibe una informacion extraconfidencial de un anciano en sus ultimos segundos de vida: el secreto mejor guardado de la Historia. El receptor, un trabajador de hospital, se lo comunica secretamente a un supuesto amigo. Ambos inician una aventura rocambolesca y llena de misterio. Ante la inutilidad de sus intentos y muy a
-	su pesar, tienen que recurrir a otras personas que asi mismo van cayendo en el pozo sin fondo que conlleva descifrar el enigma.
-			</sinopsis>
-			<director>Jesus Bonilla</director>
-			<reparto>
-				<actor>Jesus Bonilla</actor>
-				<actor>Santiago Segura</actor>
-				<actor>Alfredo Landa</actor>
-				<actor>Concha Velasco</actor>
-				<actor>Antonio Resines</actor>
-				<actor>Gabino Diego, Maria Barranco</actor>
-				<actor>Maria Barranco</actor>
-			</reparto>
-		</pelicula>
+	    <pelicula codigo="p1" duracion="152" ano="2002">
+	        <titulo>AQUELLAS JUERGAS UNIVERSITARIAS</titulo>
+	        <titulo_original>Old School</titulo_original>
+	        <nacionalidad>Estados Unidos</nacionalidad>
+	        <genero>Comedia</genero>
+	        <clasificacion edad="tp"/>
+	        <sinopsis>
+	            Mitch, Frank y Beanie son tres amigos treintaneros cuyas vidas no son exactamente lo que esperaban. Mitch tiene una novia ninfomana que se mete en la cama con el primero que agarra. Frank se ha casado y su matrimonio nada tiene que ver con las juergas salvajes que organizaban anos atras. Y Beanie es un padre de familia que se muere por recuperar su alocada juventud. Pero las cosas cambian cuando Beanie sugiere que creen su propia fraternidad, en la nueva casa que Mitch tiene junto al campus de la universidad. Una ocasion para revivir tiempos gloriosos, hacer nuevos amigos y de volver a sus viejas, salvajes y desmadradas juergas de estudiantes.
+	        </sinopsis>
+	        <director>Todd Philips</director>
+	        <reparto>
+	            <actor>Luke Wilson</actor>
+	            <actor>Will Farrel</actor>
+	            <actor>Vince Vaughn</actor>
+	        </reparto>
+	        <web>http://www.uip.es</web>
+	        <cartel>caratulas/Aquellas juergas.jpg</cartel>
+	    </pelicula>
+	    <pelicula codigo="p17" duracion="06">
+	        <titulo>EL ORO DE MOSCu</titulo>
+	        <nacionalidad>Espana</nacionalidad>
+	        <genero>Comedia</genero>
+	        <sin_clasificar/>
+	        <sinopsis>
+	            Por una extrana coincidencia del destino, alguien recibe una informacion extraconfidencial de un anciano en sus ultimos segundos de vida: el secreto mejor guardado de la Historia. El receptor, un trabajador de hospital, se lo comunica secretamente a un supuesto amigo. Ambos inician una aventura rocambolesca y llena de misterio. Ante la inutilidad de sus intentos y muy a su pesar, tienen que recurrir a otras personas que asi mismo van cayendo en el pozo sin fondo que conlleva descifrar el enigma.
+	        </sinopsis>
+	        <director>Jesus Bonilla</director>
+	        <reparto>
+	            <actor>Jesus Bonilla</actor>
+	            <actor>Santiago Segura</actor>
+	            <actor>Alfredo Landa</actor>
+	            <actor>Concha Velasco</actor>
+	            <actor>Antonio Resines</actor>
+	            <actor>Gabino Diego</actor>
+	            <actor>Maria Barranco</actor>
+	        </reparto>
+	    </pelicula>
 	</cartelera>
 
 ..
