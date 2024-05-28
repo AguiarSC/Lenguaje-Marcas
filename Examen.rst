@@ -17,8 +17,8 @@ Caracteristicas:
 - Cada reserva tiene:
   o Atributos, todos obligatorios: codigo de cliente (cliente), formado por la letra C
     seguida del DNI (8 numeros y una letra mayuscula), por ejemplo C53454123X;
-    tipoHabitacion, que podra tener los valores: SA, AD, MP o PC, que indican ``solo
-    alojamiento``, ``alojamiento y desayuno``, ``media pension`` y ``pension completa``; tipo de
+    tipoHabitacion, que podra tener los valores: SA, AD, MP o PC, que indican solo
+    alojamiento, alojamiento y desayuno, media pension y pension completa; tipo de
     habitacion (habitacion), que puede tener los valores, Doble o Individual.
   o Fecha de Inicio (fechaInicio), con atributos dia, mes y ano, obligatorios. Los tres
     deben ser atributos. El atributo mes solo puede tomar los valores de los nombres de los
