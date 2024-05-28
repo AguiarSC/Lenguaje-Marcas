@@ -43,7 +43,7 @@ l-28 -93 -143 0 c-166 0 -149 -12 -187 130 -14 52 -51 187 -82 300 -102 371
 </svg>
 
 
-## Jednostavna XML Schema
+## Simple XML Schema
 ~~~~
 <?xml version="1.0"?>
 <xs:schema xmlns:xsi="http://www.w3.org/2001/XMLSchema" targetNamespace="http://interoperabilnost.hr" xmlns="http://interoperabilnost.hr" elementFormDefault="qualified">
