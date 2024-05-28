@@ -13,24 +13,24 @@ Caracteristicas:
 
 - Cada reserva tiene:
 
-  o Atributos, todos obligatorios: codigo de cliente (cliente), formado por la letra C seguida del DNI (8 numeros y una letra mayuscula), por ejemplo C53454123X; tipoHabitacion, que podra tener los valores: SA, AD, MP o PC, que indican solo alojamiento, alojamiento y desayuno, media pension y pension completa; tipo de habitacion (habitacion), que puede tener los valores, Doble o Individual.
+  - Atributos, todos obligatorios: codigo de cliente (cliente), formado por la letra C seguida del DNI (8 numeros y una letra mayuscula), por ejemplo C53454123X; tipoHabitacion, que podra tener los valores: SA, AD, MP o PC, que indican solo alojamiento, alojamiento y desayuno, media pension y pension completa; tipo de habitacion (habitacion), que puede tener los valores, Doble o Individual.
 
-  o Fecha de Inicio (fechaInicio), con atributos dia, mes y ano, obligatorios. Los tres deben ser atributos. El atributo mes solo puede tomar los valores de los nombres de los meses del ano.
+  - Fecha de Inicio (fechaInicio), con atributos dia, mes y ano, obligatorios. Los tres deben ser atributos. El atributo mes solo puede tomar los valores de los nombres de los meses del ano.
 
-  o Fecha de fin (fechaFin), con atributos dia, mes y ano, obligatorios. Igual a la anterior.
+  - Fecha de fin (fechaFin), con atributos dia, mes y ano, obligatorios. Igual a la anterior.
 
-  o Observaciones (observaciones), una parrafada, opcional para cada reserva y solo puede
+  - Observaciones (observaciones), una parrafada, opcional para cada reserva y solo puede
     haber una.
 
 - Cada cliente tiene un atributo codigo de cliente (id) que debe estar relacionado con la reserva (cliente), y ademas consta de:
 
-  o Nombre (nombre). Obligatorio.
+  - Nombre (nombre). Obligatorio.
 
-  o Apellidos (apellidos). Obligatorio.
+  - Apellidos (apellidos). Obligatorio.
 
-  o Telefono movil (movil). Obligatorio, puede haber varios.
+  - Telefono movil (movil). Obligatorio, puede haber varios.
 
-  o Correo (email). Opcional, puede haber varios.
+  - Correo (email). Opcional, puede haber varios.
 
 - Emplea entidades donde lo consideres oportuno, nombres de los meses, por ejemplo.
 
