@@ -1,8 +1,13 @@
-Referencia a DTD
 DTD en el propio documento
-<!DOCTYPE nombre [
- ... declaraciones ...
-]>
+--------------------------
+
+.. code-block:: dtd
+
+ <!DOCTYPE nombre [
+  ... declaraciones ...
+ ]>
+
+..
 DTD en un documento externo para una única aplicación:
 <!DOCTYPE nombre SYSTEM "uri">
 Combinar una DTD externa con una DTD interna:
