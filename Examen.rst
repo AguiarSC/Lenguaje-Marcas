@@ -103,7 +103,13 @@ PRIMER EJERCICIO. APARTADO A
 
 .. code-block:: xml
 
-  <!-- CORRECCIÓN -->
+  <!-- CORRECCIÓN:
+  * Declaración DOCTYPE
+  * Cliente como atributo en lugar de elemento hijo
+  * Corrección del error tipográfico en d¡ia a dia
+  * Tilde en <móvil> eliminada
+  -->
+
   <!DOCTYPE reservas SYSTEM "reservas.dtd">
   ...
   <reserva cliente="C53454123X" tipoHabitacion="AD" habitacion="Doble">
