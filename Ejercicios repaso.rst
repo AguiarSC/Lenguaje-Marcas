@@ -230,7 +230,6 @@ ENUNCIADO
 ::
 
 	Definir una DTD que valide el documento XML que se muestra a continuación. Construir un documento XML con DTD interna y otro 
-	Definir una DTD que valide el documento XML que se muestra a continuación. Construir un documento XML con DTD interna y otro 
 	con DTD externa. Comprobar la buena formación y la validez del documento en ambos casos. Se deben tener en cuenta las 
 	siguientes características:
 
@@ -248,9 +247,64 @@ ENUNCIADO
 	- En el reparto deberá aparecer un actor como mínimo.
 
 
+.. code-block:: xml
 
+	<cartelera>
+	    <película código="p1" duración="152" año="2002">
+	        <título>AQUELLAS JUERGAS UNIVERSITARIAS</título>
+	        <título_original>Old School</título_original>
+	        <nacionalidad>Estados Unidos</nacionalidad>
+	        <género>Comedia</género>
+	        <clasificación edad="tp"/>
+	        <sinopsis>
+	            Mitch, Frank y Beanie son tres amigos treintañeros cuyas vidas no son
+	            exactamente lo que esperaban. Mitch tiene una novia un poco alocada.
+	            Frank se ha casado y su matrimonio nada tiene que ver con las juergas
+	            salvajes que organizaban años atrás. Y Beanie es un padre de familia que
+	            se muere por recuperar su alocada juventud. Pero las cosas cambian
+	            cuando Beanie sugiere que creen su propia fraternidad, en la nueva casa
+	            que Mitch tiene junto al campus de la universidad. Una ocasión para
+	            revivir tiempos gloriosos, hacer nuevos amigos y de volver a sus viejas,
+	            salvajes y desmadradas juergas de estudiantes.
+	        </sinopsis>
+	        <director>Todd Philips</director>
+	        <reparto>
+	            <actor>Luke Wilson</actor>
+	            <actor>Will Farrel</actor>
+	            <actor>Vince Vaughn</actor>
+	        </reparto>
+	        <web>http://www.uip.es</web>
+	        <cartel>caratulas/Aquellas juergas.jpg</cartel>
+	    </película>
+	    <película código="p17" duración="06">
+	        <título>EL ORO DE MOSCÚ</título>
+	        <nacionalidad>España</nacionalidad>
+	        <género>Comedia</género>
+	        <sin_clasificar/>
+	        <sinopsis>
+	            Por una extraña coincidencia del destino, alguien recibe una
+	            información extraconfidencial de un anciano en sus últimos
+	            segundos de vida: el secreto mejor guardado de la historia. El
+	            receptor, un trabajador de hospital, se lo comunica secretamente
+	            a un supuesto amigo. Ambos inician una aventura rocambolesca y
+	            llena de misterio. Ante la inutilidad de sus intentos y muy a
+	            su pesar, tienen que recurrir a otras personas que así mismo van
+	            cayendo en el pozo sin fondo que conlleva descifrar el enigma.
+	        </sinopsis>
+	        <director>Jesús Bonilla</director>
+	        <reparto>
+	            <actor>Jesús Bonilla</actor>
+	            <actor>Santiago Segura</actor>
+	            <actor>Alfredo Landa</actor>
+	            <actor>Concha Velasco</actor>
+	            <actor>Antonio Resines</actor>
+	            <actor>Gabino Diego, María Barranco</actor>
+	            <actor>María Barranco</actor>
+	        </reparto>
+	    </película>
+	</cartelera>
 
-
+..
 
 
 
