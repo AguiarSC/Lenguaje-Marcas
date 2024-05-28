@@ -345,7 +345,15 @@ SOLUCIÓN DTD INTERNO
 	        <género>Comedia</género>
 	        <clasificación edad="tp"/>
 	        <sinopsis>
-	            Mitch, Frank y Beanie son tres amigos treintañeros cuyas vidas no son exactamente lo que esperaban. Mitch tiene una novia ninfómana que se mete en la cama con el primero que agarra. Frank se ha casado y su matrimonio nada tiene que ver con las juergas salvajes que organizaban años atrás. Y Beanie es un padre de familia que se muere por recuperar su alocada juventud. Pero las cosas cambian cuando Beanie sugiere que creen su propia fraternidad, en la nueva casa que Mitch tiene junto al campus de la universidad. Una ocasión para revivir tiempos gloriosos, hacer nuevos amigos y de volver a sus viejas, salvajes y desmadradas juergas de estudiantes.
+			Mitch, Frank y Beanie son tres amigos treintañeros cuyas vidas no son
+			exactamente lo que esperaban. Mitch tiene una novia un poco alocada.
+			Frank se ha casado y su matrimonio nada tiene que ver con las juergas
+			salvajes que organizaban años atrás. Y Beanie es un padre de familia que
+			se muere por recuperar su alocada juventud. Pero las cosas cambian
+			cuando Beanie sugiere que creen su propia fraternidad, en la nueva casa
+			que Mitch tiene junto al campus de la universidad. Una ocasión para
+			revivir tiempos gloriosos, hacer nuevos amigos y de volver a sus viejas,
+			salvajes y desmadradas juergas de estudiantes.
 	        </sinopsis>
 	        <director>Todd Philips</director>
 	        <reparto>
@@ -362,8 +370,14 @@ SOLUCIÓN DTD INTERNO
 	        <género>Comedia</género>
 	        <sin_clasificar/>
 	        <sinopsis>
-	Por una extraña coincidencia del destino, alguien recibe una información extraconfidencial de un anciano en sus últimos segundos de vida: el secreto mejor guardado de la Historia. El receptor, un trabajador de hospital, se lo comunica secretamente a un supuesto amigo. Ambos inician una aventura rocambolesca y llena de misterio. Ante la inutilidad de sus intentos y muy a
-	su pesar, tienen que recurrir a otras personas que así mismo van cayendo en el pozo sin fondo que conlleva descifrar el enigma.
+			Por una extraña coincidencia del destino, alguien recibe una
+			información extraconfidencial de un anciano en sus últimos
+			segundos de vida: el secreto mejor guardado de la historia. El
+			receptor, un trabajador de hospital, se lo comunica secretamente
+			a un supuesto amigo. Ambos inician una aventura rocambolesca y
+			llena de misterio. Ante la inutilidad de sus intentos y muy a
+			su pesar, tienen que recurrir a otras personas que así mismo van
+			cayendo en el pozo sin fondo que conlleva descifrar el enigma.
 	        </sinopsis>
 	        <director>Jesús Bonilla</director>
 	        <reparto>
