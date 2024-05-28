@@ -431,3 +431,68 @@ SOLUCIÓN DTD EXTERNO
 	 <!ATTLIST clasificación edad (8 | 12 | 16 | 18 | tp) #REQUIRED>
 
 ..
+
+
+EJERCICIO 3
+-----------
+
+ENUNCIADO
+=========
+
+::
+
+	Elaboraremos un esquema XML teniendo en cuenta que:
+
+	- El número de calle debe ser un número positivo que no supere los 2000.
+
+	- El código postal consta únicamente de 5 dígitos.
+
+	- Validar que los meses del año tengan un valor correcto.
+
+	- El año debe tener un valor de año correcto.
+
+	- El alquiler es verdadero o falso, y es obligatorio.
+
+	- El valor debe ser un número con dos decimales.
+
+	Un ejemplo de código XML sería: 
+
+	.. code-block:: xml
+
+		<?xml version="1.0" encoding="UTF-8"?>
+		<edificio alquiler="verdadeiro" valor="410.50" xmins:xsi="http://www.w3.org/2001/XML5chema-instance" xsi:noNamespaceSchemaLocation="edificio.xsd">
+		    <enderezo>
+		        <rua>Ponzano</rua>
+		        <numero>66</numero>
+		        <poboacion>Madrid</poboacion>
+		        <provincia>Madrid</provincia>
+		        <codigoPostal>28003</codigoPostal>
+		    </enderezo>
+		    <dataConstrucion mes="Febreiro" ano-"1989" I>
+		        <material>formigengmaterial></material>
+		    </dataConstrucion>
+		</edificio>
+
+	..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
