@@ -176,6 +176,7 @@ SOLUCIÓN DTD EXTERNO
 
 .. code-block:: xml
 
+	<!-- Añadir esto al xml original -->
 	<?xml version="1.1" encoding="UTF-8"?>
 	<!DOCTYPE factura SYSTEM "Factura.dtd">
 
