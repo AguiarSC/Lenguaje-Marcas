@@ -15,3 +15,5 @@ EJERCICIO 1
 	* La moneda tiene que aparecer siempre, y siempre toma al valor “euro”.
 	
 	* El iva tiene que aparecer siempre, y su valor no puede contener caracteres especiales.
+
+::
