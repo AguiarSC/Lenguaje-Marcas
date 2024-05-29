@@ -21,8 +21,8 @@
 
     - Publicación (publicado), con atributos año y idioma, ambos obligatorios.
 
-    - Disponibilidad (disponibilidad), que puede incluir estado (estado), ubicación (ubicacion, opcional) y fecha de devolución 
-      (fecha_devolucion, opcional).
+    - Disponibilidad (disponibilidad), que puede incluir estado (estado), ubicación (ubicacion, opcional) y fecha de 
+      devolución (fecha_devolucion, opcional).
 
   - Cada miembro tiene:
 
