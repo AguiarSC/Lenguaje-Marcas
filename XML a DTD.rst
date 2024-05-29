@@ -33,8 +33,8 @@
     - Membresía (membresia), con tipo (tipo) que puede ser Anual o Mensual, fecha de inicio (fecha_inicio) y fecha de fin 
       (fecha_fin), todos obligatorios.
 
-    - Contacto (contacto), que incluye correo (correo) con un atributo tipo que puede ser empresa o personal, y teléfono (telefono).
-      El correo es opcional y puede haber varios, el teléfono es obligatorio y puede haber varios.
+    - Contacto (contacto), que incluye correo (correo) con un atributo tipo que puede ser empresa o personal, y teléfono 
+      (telefono). El correo es opcional y puede haber varios, el teléfono es obligatorio y puede haber varios.
 
     - Libros prestados (libros_prestados), puede no haber.
 
