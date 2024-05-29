@@ -177,9 +177,8 @@ PRIMER EJERCICIO. APARTADO B
     <!-- Podemos definir una entidad para las fechas 
     <!ENTITY % fecha 
         "año CDATA #REQUIRED
-            mes (Enero | Febrero | Marzo | Abril | Mayo | Junio | Julio | 
-            Agosto | Septiembre | Octubre | Noviembre | Diciembre) #REQUIRED
-            dia CDATA #REQUIRED">
+        mes (Enero | Febrero | Marzo | Abril | Mayo | Junio | Julio | Agosto | Septiembre | Octubre | Noviembre | Diciembre) #REQUIRED
+        dia CDATA #REQUIRED">
     <!ATTLIST fechaInicio %fecha; >	
     <!ATTLIST fechaFin %fecha; >
 
