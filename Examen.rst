@@ -3,10 +3,10 @@ ENUNCIADO
 
 ::
 
-  El Hotel Noa, precisa disponer de informacion para sus reservas de habitaciones, por lo que decidieron generar un documento XML 
-  con la informacion de las mismas, asi como documentos de validacion. Aunque el tecnico informatico ha pensado en generarlo 
-  dinamicamente a partir de la informacion almacenada en una base de datos, necesitan preparar un documento XML y un DTD asociado 
-  que sirva como plantilla.
+  El Hotel Noa, precisa disponer de informacion para sus reservas de habitaciones, por lo que decidieron generar un documento 
+  XML con la informacion de las mismas, asi como documentos de validacion. Aunque el tecnico informatico ha pensado en 
+  generarlo dinamicamente a partir de la informacion almacenada en una base de datos, necesitan preparar un documento XML y 
+  un DTD asociado que sirva como plantilla.
   
   Caracteristicas:
   
