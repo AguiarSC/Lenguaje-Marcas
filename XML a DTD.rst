@@ -48,6 +48,10 @@
 
     - Participantes (participantes), puede incluir varios miembros.
 
+  a) Crea el documento XML, biblioteca.xml, para que se ajuste a las características anteriores.
+
+  b) Realiza un documento DTD, biblioteca.dtd, que valide el XML creado.
+
 
 .. code-block:: xml
 
