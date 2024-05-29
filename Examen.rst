@@ -31,7 +31,7 @@ ENUNCIADO
     - Observaciones (observaciones), una parrafada, opcional para cada reserva y solo puede
       haber una.
   
-  - Cada cliente tiene un atributo codigo de cliente (id) que debe estar relacionado con la reserva (cliente), y ademas consta de:
+  - Cada cliente tiene un atributo codigo (id) que debe estar relacionado con la reserva (cliente), y ademas consta de:
   
     - Nombre (nombre). Obligatorio.
   
