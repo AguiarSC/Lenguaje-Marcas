@@ -1,6 +1,9 @@
 ::
 
-  La biblioteca municipal precisa disponer de información para sus colecciones de libros, así como para la gestión de sus miembros y eventos. Por lo tanto, decidieron generar un documento XML con dicha información, así como documentos de validación. Aunque el técnico informático ha pensado en generarlo dinámicamente a partir de la información almacenada en una base de datos, necesitan preparar un documento XML y un DTD asociado que sirva como plantilla.
+  La biblioteca municipal precisa disponer de información para sus colecciones de libros, así como para la gestión de sus 
+  miembros y eventos. Por lo tanto, decidieron generar un documento XML con dicha información, así como documentos de 
+  validación. Aunque el técnico informático ha pensado en generarlo dinámicamente a partir de la información almacenada en una 
+  base de datos, necesitan preparar un documento XML y un DTD asociado que sirva como plantilla.
   
   Características:
 
@@ -18,7 +21,8 @@
 
     - Publicación (publicado), con atributos año y idioma, ambos obligatorios.
 
-    - Disponibilidad (disponibilidad), que puede incluir estado (estado), ubicación (ubicacion, opcional) y fecha de devolución (fecha_devolucion, opcional).
+    - Disponibilidad (disponibilidad), que puede incluir estado (estado), ubicación (ubicacion, opcional) y fecha de devolución 
+      (fecha_devolucion, opcional).
 
   - Cada miembro tiene:
 
@@ -26,9 +30,11 @@
 
     - Nombre (nombre). Obligatorio.
 
-    - Membresía (membresia), con tipo (tipo) que puede ser Anual o Mensual, fecha de inicio (fecha_inicio) y fecha de fin (fecha_fin), todos obligatorios.
+    - Membresía (membresia), con tipo (tipo) que puede ser Anual o Mensual, fecha de inicio (fecha_inicio) y fecha de fin 
+      (fecha_fin), todos obligatorios.
 
-    - Contacto (contacto), que incluye correo (correo) con un atributo tipo que puede ser empresa o personal, y teléfono (telefono). El correo es opcional y puede haber varios, el teléfono es obligatorio y puede haber varios.
+    - Contacto (contacto), que incluye correo (correo) con un atributo tipo que puede ser empresa o personal, y teléfono (telefono).
+      El correo es opcional y puede haber varios, el teléfono es obligatorio y puede haber varios.
 
     - Libros prestados (libros_prestados), puede no haber.
 
