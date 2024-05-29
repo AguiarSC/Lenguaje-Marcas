@@ -211,6 +211,18 @@ PRIMER EJERCICIO. APARTADO B
 SEGUNDO EJERCICIO. APARTADO A
 -----------------------------
 
+::
+
+  Modifica el documento XML Schema que valide el documento XML generado en el ejercicio 1:
+  - Define un tipo de dato, llamado "tipoFecha" para reutilizar y emplear en el elemento
+  fechaInicio y fechaFin (0,8 puntos)
+  - Define un tipo de dato simple, llamado "tipoIdCliente" para reutilizar en los atributos cliente e
+  id y definir el patrón. (0,7 puntos)
+  - Define ATRIBUTO "tipoHabitacion" restringir valores "AD", "MP", "PC" y "SA". (0,6 puntos)
+  - Define ATRIBUTO "habitacion" restringir valores "Doble", "Individual". (0,6 puntos)
+  - Define las referencias entre las claves. (0,8 puntos)
+
+
 .. code-block:: xml
 
   <?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -367,6 +379,25 @@ SEGUNDO EJERCICIO. APARTADO A
 
 SEGUNDO EJERCICIO. APARTADO B
 -----------------------------
+
+::
+
+  Genera un nuevo documento XML a partir del creado en el ejercicio1, teniendo en cuenta que:
+  - Existe un nuevo elemento, empleado, que aparece dentro de cliente. (0,25 puntos)
+  - El empleado es un elemento que contiene sólo el texto con el código de empleado. El código de
+  empleado es de la forma HC123456, esto es, dos letras mayúsculas seguidas de 6 números.
+  (0,5 puntos)
+  - Ahora, el cliente puede tener, o el elemento empleado o los elementos del ejercicio 1, pero
+  no ambos a la vez. (1 punto)
+  Modifica el documento XML Schema que valide el documento XML creado en esta opción:
+  - Define un tipo de dato, llamado "tipoFecha" para reutilizar y emplear en el elemento
+  fechaInicio y fechaFin (0,8 puntos)
+  - Define un tipo de dato simple, llamado "tipoIdCliente" para reutilizar en los atributos cliente e
+  id y definir el patrón. (0,7 puntos)
+  - Define ATRIBUTO "tipoHabitacion" restringir valores "AD", "MP", "PC" y "SA". (0,6 puntos)
+  - Define ATRIBUTO "habitacion" restringir valores "Doble", "Individual". (0,6 puntos)
+  - Define las referencias entre las claves. (0,8 puntos)
+
 
 .. code-block:: xml
 
