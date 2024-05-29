@@ -1,5 +1,8 @@
-1- XML Y DTD
-============
+ENUNCIADO EXAMEN
+----------------
+
+XML Y DTD
+=========
 
 La Biblioteca Nacional necesita gestionar la información sobre sus libros y préstamos. Para ello, han decidido crear un documento XML con la información relevante, así como un documento de validación DTD. Aunque el técnico informático ha considerado generarlo dinámicamente a partir de una base de datos, se requiere preparar un documento XML y un DTD asociado que sirva como plantilla.
 
@@ -38,8 +41,8 @@ XML sin modificar:
         </prestamo>
     </biblioteca>
 
-2- XML SCHEMA
-=============
+XML SCHEMA
+==========
 
 Elige una de las dos opciones:
 
@@ -122,3 +125,8 @@ XML Schema (esqueleto):
         </xs:element>
 
     </xs:schema>
+
+
+
+SOLUCIÓN EXAMEN
+---------------
