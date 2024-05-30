@@ -1,4 +1,4 @@
-## Simple XML Schema
+## Esquema XML Simple
 ~~~~
 <?xml version="1.0"?>
 <xs:schema xmlns:xsi="http://www.w3.org/2001/XMLSchema" targetNamespace="http://interoperabilnost.hr" xmlns="http://interoperabilnost.hr" elementFormDefault="qualified">
@@ -15,42 +15,42 @@
 
 <br />
 
-## Simple Types
+## Tipos Simples
 
-  - xs:string
-  - xs:decimal
-  - xs:integer
-  - xs:boolean
-  - xs:date
-  - xs:time
+  - **xs:string**: Representa una cadena de caracteres.
+  - **xs:decimal**: Representa un número decimal.
+  - **xs:integer**: Representa un número entero.
+  - **xs:boolean**: Representa un valor booleano (verdadero o falso).
+  - **xs:date**: Representa una fecha en el formato YYYY-MM-DD.
+  - **xs:time**: Representa una hora en el formato hh:mm:ss.
 
-### Example
+### Ejemplo
 ~~~~
 <xs:element name="start_date" type="xs:date"/>
 ~~~~
 
 <br />
 
-## XML Facets
+## Facetas XML
 
-Facets are used to define restrictions on simple types. They limit the range of values that an element can have.
+Las facetas se utilizan para definir restricciones en los tipos simples. Limitan el rango de valores que un elemento puede tener.
 
-  - xs:minInclusive 
-  - xs:maxInclusive
-  - xs:minExclusive
-  - xs:maxExclusive
-  - xs:enumeration
-  - xs:pattern
-  - xs:whiteSpace
-  - xs:length
-  - xs:minLength
-  - xs:maxLength
-  - xs:totalDigits
-  - xs:fractionDigits
+  - **xs:minInclusive**: Valor mínimo inclusivo.
+  - **xs:maxInclusive**: Valor máximo inclusivo.
+  - **xs:minExclusive**: Valor mínimo exclusivo.
+  - **xs:maxExclusive**: Valor máximo exclusivo.
+  - **xs:enumeration**: Define un conjunto de valores permitidos.
+  - **xs:pattern**: Define un patrón mediante una expresión regular.
+  - **xs:whiteSpace**: Controla cómo se manejan los espacios en blanco.
+  - **xs:length**: Longitud exacta de una cadena.
+  - **xs:minLength**: Longitud mínima de una cadena.
+  - **xs:maxLength**: Longitud máxima de una cadena.
+  - **xs:totalDigits**: Número total de dígitos permitidos.
+  - **xs:fractionDigits**: Número máximo de dígitos fraccionarios permitidos.
 
-### Min-max
+### Min-máx
 
-Defines minimum and maximum inclusive values for an element.
+Define valores mínimos y máximos inclusivos para un elemento.
 ~~~~
 <xs:element name="age">
   <xs:simpleType>
@@ -62,9 +62,9 @@ Defines minimum and maximum inclusive values for an element.
 </xs:element> 
 ~~~~
 
-### Enumeration
+### Enumeración
 
-Restricts an element to a set of predefined values.
+Restringe un elemento a un conjunto de valores predefinidos.
 ~~~~
 <xs:element name="car" type="carType"/>
 
@@ -77,20 +77,20 @@ Restricts an element to a set of predefined values.
 </xs:simpleType>
 ~~~~
 
-### Pattern
+### Patrón
 
-Uses regular expressions to define a pattern for the value of an element.
+Utiliza expresiones regulares para definir un patrón para el valor de un elemento.
 ~~~~
 <xs:restriction base="xs:string">
   <xs:pattern value="([a-z])+"/>
 </xs:restriction>
 ~~~~
 
-### WhiteSpace
-Controls how whitespace is handled.
-- preserve: keep whitespaces
-- replace: replace whitespace characters with spaces
-- collapse: collapse all whitespace characters to a single space
+### Espacios en blanco
+Controla cómo se manejan los espacios en blanco.
+- **preserve**: Mantener los espacios en blanco.
+- **replace**: Reemplazar los caracteres de espacio en blanco con espacios.
+- **collapse**: Colapsar todos los caracteres de espacio en blanco en un solo espacio.
 
 ~~~~
 <xs:restriction base="xs:string">
@@ -100,18 +100,18 @@ Controls how whitespace is handled.
 
 <br />
 
-## Complex Elements
+## Elementos Complejos
 
-Complex elements can have multiple elements and/or attributes. They are more versatile than simple elements.
+Los elementos complejos pueden tener múltiples elementos y/o atributos. Son más versátiles que los elementos simples.
 
-- empty elements
-- elements that contain only other elements
-- elements that contain only text
-- elements that contain both other elements and text
+- **elementos vacíos**: Elementos que no contienen ningún dato.
+- **elementos que contienen solo otros elementos**: Elementos que contienen otros elementos, pero no texto.
+- **elementos que contienen solo texto**: Elementos que contienen texto, pero no otros elementos.
+- **elementos que contienen tanto otros elementos como texto**: Elementos que contienen tanto texto como otros elementos.
 
-### Complex Example
+### Ejemplo Complejo
 
-Defines a complex element `personinfo` which is used by `employee` and `student`. `professor` extends `personinfo` to include additional elements.
+Define un elemento complejo `personinfo` que es usado por `employee` y `student`. `professor` extiende `personinfo` para incluir elementos adicionales.
 ~~~~
 <xs:element name="employee" type="personinfo"/>
 <xs:element name="student" type="personinfo"/>
@@ -138,18 +138,18 @@ Defines a complex element `personinfo` which is used by `employee` and `student`
 </xs:complexType> 
 ~~~~
 
-### Empty Element
+### Elemento Vacío
 
-Defines an element with attributes but no child elements.
+Define un elemento con atributos pero sin elementos secundarios.
 ~~~~
 <xs:complexType name="prodtype">
   <xs:attribute name="prodid" type="xs:positiveInteger"/>
 </xs:complexType>
 ~~~~
 
-### Text only + attribute
+### Solo texto + atributo
 
-Defines an element that contains only text and an attribute.
+Define un elemento que contiene solo texto y un atributo.
 ~~~~
 <xs:complexType name="shoetype">
   <xs:simpleContent>
@@ -160,9 +160,9 @@ Defines an element that contains only text and an attribute.
 </xs:complexType>
 ~~~~
 
-### Integer only + Attribute + attribute restriction
+### Solo entero + Atributo + restricción de atributo
 
-Defines an element with integer content and an attribute with restrictions.
+Define un elemento con contenido entero y un atributo con restricciones.
 ~~~~
 <xs:complexType>
   <xs:simpleContent>
@@ -180,62 +180,62 @@ Defines an element with integer content and an attribute with restrictions.
 ~~~~
 <br />
 
-## Element Indicators
+## Indicadores de Elementos
 
-Indicators define how elements can appear in the XML document.
+Los indicadores definen cómo pueden aparecer los elementos en el documento XML.
 
-- **All**: Elements can appear in any order but only once.
-- **Choice**: Only one of the elements can appear.
-- **Sequence**: Elements must appear in a specific order.
+- **All**: Los elementos pueden aparecer en cualquier orden, pero solo una vez.
+- **Choice**: Solo uno de los elementos puede aparecer.
+- **Sequence**: Los elementos deben aparecer en un orden específico.
 
-- **minOccurs**: Minimum number of occurrences.
-- **maxOccurs**: Maximum number of occurrences.
+- **minOccurs**: Número mínimo de ocurrencias.
+- **maxOccurs**: Número máximo de ocurrencias.
 
 <br />
 
-## Data Types
+## Tipos de Datos
 
-### String
+### Cadena
 
-- xs:string
+- **xs:string**: Representa una cadena de caracteres.
 
-### Date
+### Fecha
 
-XML Schema provides a variety of date and time formats.
+El esquema XML proporciona una variedad de formatos de fecha y hora.
 
-| Name          | Description   |
+| Nombre          | Descripción   |
 | ------------- |-------------:|
-| xs:date      | YYYY-MM-DD |
-| xs:dateTime     | YYYY-MM-DDThh:mm:ss      |
-| xs:duration | PnYnMnDTnHnMnS |
-| xs:gDay | DD      |
-| xs:gMonth | MM      |
-| xs:gMonthDay | MM-DD      |
-| xs:gYear | YYYY      |
-| xs:gYearMonth | YYYY-MM      |
-| xs:time | hh:mm:ss      |
+| **xs:date**      | YYYY-MM-DD |
+| **xs:dateTime**     | YYYY-MM-DDThh:mm:ss      |
+| **xs:duration** | PnYnMnDTnHnMnS |
+| **xs:gDay** | DD      |
+| **xs:gMonth** | MM      |
+| **xs:gMonthDay** | MM-DD      |
+| **xs:gYear** | YYYY      |
+| **xs:gYearMonth** | YYYY-MM      |
+| **xs:time** | hh:mm:ss      |
 
-### Numeric
+### Numérico
 
-Various numeric data types are available for different ranges and precisions.
+Varios tipos de datos numéricos están disponibles para diferentes rangos y precisiones.
 
-- xs:byte
-- xs:decimal
-- xs:int
-- xs:integer
-- xs:long
-- xs:negativeInteger
-- xs:nonNegativeInteger
-- xs:nonPositiveInteger
-- xs:positiveInteger
-- xs:short
-- xs:unsignedLong
-- xs:unsignedInt
-- xs:unsignedShort
-- xs:unsignedByte
-- xs:float
-- xs:double
+- **xs:byte**: Entero de 8 bits con signo.
+- **xs:decimal**: Número decimal.
+- **xs:int**: Entero de 32 bits con signo.
+- **xs:integer**: Número entero.
+- **xs:long**: Entero de 64 bits con signo.
+- **xs:negativeInteger**: Entero negativo.
+- **xs:nonNegativeInteger**: Entero no negativo.
+- **xs:nonPositiveInteger**: Entero no positivo.
+- **xs:positiveInteger**: Entero positivo.
+- **xs:short**: Entero de 16 bits con signo.
+- **xs:unsignedLong**: Entero de 64 bits sin signo.
+- **xs:unsignedInt**: Entero de 32 bits sin signo.
+- **xs:unsignedShort**: Entero de 16 bits sin signo.
+- **xs:unsignedByte**: Entero de 8 bits sin signo.
+- **xs:float**: Número de punto flotante de precisión simple.
+- **xs:double**: Número de punto flotante de precisión doble.
 
-### Boolean
+### Booleano
 
-- xs:boolean
+- **xs:boolean**: Representa un valor booleano (verdadero o falso).
