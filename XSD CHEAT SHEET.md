@@ -37,7 +37,8 @@ Las facetas se utilizan para definir restricciones en los tipos simples. Limitan
 ### Min-máx
 
 Define valores mínimos y máximos inclusivos para un elemento.
-~~~~
+
+```xsd
 <xs:element name="age">
   <xs:simpleType>
     <xs:restriction base="xs:integer">
@@ -46,12 +47,13 @@ Define valores mínimos y máximos inclusivos para un elemento.
     </xs:restriction>
   </xs:simpleType>
 </xs:element> 
-~~~~
+```
 
 ### Enumeración
 
 Restringe un elemento a un conjunto de valores predefinidos.
-~~~~
+
+```xsd
 <xs:element name="car" type="carType"/>
 
 <xs:simpleType name="carType">
@@ -61,16 +63,17 @@ Restringe un elemento a un conjunto de valores predefinidos.
     <xs:enumeration value="BMW"/>
   </xs:restriction>
 </xs:simpleType>
-~~~~
+```
 
 ### Patrón
 
 Utiliza expresiones regulares para definir un patrón para el valor de un elemento.
-~~~~
+
+```xsd
 <xs:restriction base="xs:string">
   <xs:pattern value="([a-z])+"/>
 </xs:restriction>
-~~~~
+```
 
 ### Espacios en blanco
 Controla cómo se manejan los espacios en blanco.
@@ -78,11 +81,11 @@ Controla cómo se manejan los espacios en blanco.
 - **replace**: Reemplazar los caracteres de espacio en blanco con espacios.
 - **collapse**: Colapsar todos los caracteres de espacio en blanco en un solo espacio.
 
-~~~~
+```xsd
 <xs:restriction base="xs:string">
   <xs:whiteSpace value="preserve"/>
 </xs:restriction>
-~~~~
+```
 
 <br />
 
@@ -98,7 +101,8 @@ Los elementos complejos pueden tener múltiples elementos y/o atributos. Son má
 ### Ejemplo Complejo
 
 Define un elemento complejo `personinfo` que es usado por `employee` y `student`. `professor` extiende `personinfo` para incluir elementos adicionales.
-~~~~
+
+```xsd
 <xs:element name="employee" type="personinfo"/>
 <xs:element name="student" type="personinfo"/>
 
@@ -122,21 +126,23 @@ Define un elemento complejo `personinfo` que es usado por `employee` y `student`
     </xs:extension>
   </xs:complexContent>
 </xs:complexType> 
-~~~~
+```
 
 ### Elemento Vacío
 
 Define un elemento con atributos pero sin elementos secundarios.
-~~~~
+
+```xsd
 <xs:complexType name="prodtype">
   <xs:attribute name="prodid" type="xs:positiveInteger"/>
 </xs:complexType>
-~~~~
+```
 
 ### Solo texto + atributo
 
 Define un elemento que contiene solo texto y un atributo.
-~~~~
+
+```xsd
 <xs:complexType name="shoetype">
   <xs:simpleContent>
     <xs:extension base="xs:integer">
@@ -144,12 +150,13 @@ Define un elemento que contiene solo texto y un atributo.
     </xs:extension>
   </xs:simpleContent>
 </xs:complexType>
-~~~~
+```
 
 ### Solo entero + Atributo + restricción de atributo
 
 Define un elemento con contenido entero y un atributo con restricciones.
-~~~~
+
+```xsd
 <xs:complexType>
   <xs:simpleContent>
     <xs:extension base="xs:integer">
@@ -163,7 +170,8 @@ Define un elemento con contenido entero y un atributo con restricciones.
     </xs:extension>
   </xs:simpleContent>
 </xs:complexType>
-~~~~
+```
+
 <br />
 
 ## Indicadores de Elementos
