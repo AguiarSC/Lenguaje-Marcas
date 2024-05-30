@@ -1,16 +1,4 @@
-## Esquema XML Simple
-~~~~
-<?xml version="1.0"?>
-<xs:schema xmlns:xsi="http://www.w3.org/2001/XMLSchema" targetNamespace="http://interoperabilnost.hr" xmlns="http://interoperabilnost.hr" elementFormDefault="qualified">
-  <xs:element name="note">
-    <xs:complexType>
-      <xs:sequence>
-	<xs:element name="to" type="xs:string"/>
-	<xs:element name="from" type="xs:string"/>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-</xs:schema> 
+## XML SCHEMA (XSD)
 ~~~~
 
 <br />
@@ -51,7 +39,7 @@ Las facetas se utilizan para definir restricciones en los tipos simples. Limitan
 ### Min-máx
 
 Define valores mínimos y máximos inclusivos para un elemento.
-~~~~
+```xsd
 <xs:element name="age">
   <xs:simpleType>
     <xs:restriction base="xs:integer">
@@ -60,7 +48,7 @@ Define valores mínimos y máximos inclusivos para un elemento.
     </xs:restriction>
   </xs:simpleType>
 </xs:element> 
-~~~~
+```
 
 ### Enumeración
 
