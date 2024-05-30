@@ -2,7 +2,7 @@
 
 ## Tipos Simples
 
-  - **xs:string**: Representa una cadena de caracteres.
+  - `xs:string`: Representa una cadena de caracteres.
   - **xs:decimal**: Representa un número decimal.
   - **xs:integer**: Representa un número entero.
   - **xs:boolean**: Representa un valor booleano (verdadero o falso).
