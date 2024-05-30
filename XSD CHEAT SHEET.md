@@ -1,5 +1,4 @@
 ## XML SCHEMA (XSD)
-~~~~
 
 <br />
 
@@ -39,7 +38,6 @@ Las facetas se utilizan para definir restricciones en los tipos simples. Limitan
 ### Min-máx
 
 Define valores mínimos y máximos inclusivos para un elemento.
-
 ~~~~
 <xs:element name="age">
   <xs:simpleType>
