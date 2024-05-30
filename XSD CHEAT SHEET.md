@@ -40,16 +40,16 @@ Las facetas se utilizan para definir restricciones en los tipos simples. Limitan
 
 Define valores mínimos y máximos inclusivos para un elemento.
 
-```xsd
-  <xs:element name="age">
-    <xs:simpleType>
-      <xs:restriction base="xs:integer">
-        <xs:minInclusive value="0"/>
-        <xs:maxInclusive value="120"/>
-      </xs:restriction>
-    </xs:simpleType>
-  </xs:element> 
-```
+~~~~
+<xs:element name="age">
+  <xs:simpleType>
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="120"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:element> 
+~~~~
 
 ### Enumeración
 
