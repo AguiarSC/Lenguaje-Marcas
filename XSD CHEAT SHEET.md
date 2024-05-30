@@ -10,9 +10,10 @@
   - **xs:time**: Representa una hora en el formato hh:mm:ss.
 
 ### Ejemplo
-~~~~
+
+```xsd
 <xs:element name="start_date" type="xs:date"/>
-~~~~
+```
 
 <br />
 
