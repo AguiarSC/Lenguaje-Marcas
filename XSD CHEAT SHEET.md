@@ -1,7 +1,5 @@
 ## XML SCHEMA (XSD)
 
-<br />
-
 ## Tipos Simples
 
   - **xs:string**: Representa una cadena de caracteres.
